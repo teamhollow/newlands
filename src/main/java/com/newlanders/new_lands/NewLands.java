@@ -63,5 +63,7 @@ public class NewLands {
         }
     }
     
-    private void doClientStuff(final FMLClientSetupEvent event) {}
+    private void doClientStuff(final FMLClientSetupEvent event) {
+        ClientEventHandler.setup(event);
+    }
 }

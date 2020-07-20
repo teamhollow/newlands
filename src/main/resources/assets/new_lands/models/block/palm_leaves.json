@@ -1,0 +1,6 @@
+{
+    "parent": "block/leaves",
+    "textures": {
+        "all": "new_lands:block/tropical_palm_leaves"
+    }
+}

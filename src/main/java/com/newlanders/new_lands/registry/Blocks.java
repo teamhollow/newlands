@@ -5,6 +5,10 @@ import com.newlanders.new_lands.NewLands;
 import com.newlanders.new_lands.blocks.LayerBlock;
 import com.newlanders.new_lands.utils.BiRegistry;
 import net.minecraft.block.Block;
+import net.minecraft.block.LeavesBlock;
+import net.minecraft.block.LogBlock;
+import net.minecraft.block.material.Material;
+import net.minecraft.block.material.MaterialColor;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
@@ -20,6 +24,9 @@ public class Blocks {
 	public static final DeferredRegister<Block> BLOCKS = new DeferredRegister<>(ForgeRegistries.BLOCKS, NewLands.ModID);
 	
 	public static final BiRegistry<RegistryObject<Block>, RegistryObject<Item>> SAND_LAYER = registerBlockWithItem("sand_layer", new LayerBlock(), 64, CreativeTabs.WORLD_GEN,null);
+	public static final BiRegistry<RegistryObject<Block>, RegistryObject<Item>> STRIPPED_TROPICAL_PALM_LOG = registerBlockWithItem("stripped_tropical_palm_log", new LogBlock(MaterialColor.ADOBE, Block.Properties.from(net.minecraft.block.Blocks.OAK_LOG)), 64, CreativeTabs.WORLD_GEN,null);
+	public static final BiRegistry<RegistryObject<Block>, RegistryObject<Item>> TROPICAL_PALM_LOG = registerBlockWithItem("tropical_palm_log", new LogBlock(MaterialColor.ADOBE, Block.Properties.from(net.minecraft.block.Blocks.OAK_LOG)), 64, CreativeTabs.WORLD_GEN,null);
+	public static final BiRegistry<RegistryObject<Block>, RegistryObject<Item>> TROPICAL_PALM_LEAVES = registerBlockWithItem("tropical_palm_leaves", new LeavesBlock(Block.Properties.from(net.minecraft.block.Blocks.OAK_LEAVES)), 64, CreativeTabs.WORLD_GEN,null);
 	
 	public static BiRegistry<RegistryObject<Block>, RegistryObject<Item>> registerBlockWithItem(String name, Block block, int maxStack, @Nullable ItemGroup group, @Nullable Rarity rarity) {
 		Item.Properties properties = new Item.Properties();
