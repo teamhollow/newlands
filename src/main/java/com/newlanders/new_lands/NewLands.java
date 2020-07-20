@@ -1,13 +1,11 @@
 package com.newlanders.new_lands;
 
+import com.newlanders.new_lands.features.PalmTreeFeature;
 import com.newlanders.new_lands.features.SandLayerFeature;
 import com.newlanders.new_lands.registry.Blocks;
 import com.newlanders.new_lands.registry.Items;
-import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.biome.Biome;
-import net.minecraft.world.biome.Biomes;
 import net.minecraft.world.gen.GenerationStage;
-import net.minecraft.world.gen.feature.NoFeatureConfig;
 import net.minecraft.world.gen.feature.ProbabilityConfig;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -18,8 +16,6 @@ import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.registries.ForgeRegistries;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-
-import java.util.Iterator;
 
 @Mod(NewLands.ModID)
 public class NewLands {
@@ -40,7 +36,7 @@ public class NewLands {
     
     private void commonSetup(FMLCommonSetupEvent event) {
 //        Biome beach=ForgeRegistries.BIOMES.getValue(new ResourceLocation("minecraft:beach"));
-//        beach.addFeature(GenerationStage.Decoration.TOP_LAYER_MODIFICATION,new SandLayerFeature(ProbabilityConfig::deserialize).withConfiguration(new ProbabilityConfig(100)));
+//        beach.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION,new PalmTrees(ProbabilityConfig::deserialize).withConfiguration(new ProbabilityConfig(100)));
 //
 //        Biome[] allOceans=new Biome[]{
 //                Biomes.OCEAN,
@@ -60,6 +56,7 @@ public class NewLands {
     
         for (Biome biome : ForgeRegistries.BIOMES) {
             biome.addFeature(GenerationStage.Decoration.TOP_LAYER_MODIFICATION, new SandLayerFeature(ProbabilityConfig::deserialize).withConfiguration(new ProbabilityConfig(100)));
+            biome.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION,new PalmTreeFeature(ProbabilityConfig::deserialize).withConfiguration(new ProbabilityConfig(100)));
         }
     }
     

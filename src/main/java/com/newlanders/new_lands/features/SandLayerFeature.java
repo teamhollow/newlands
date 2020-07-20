@@ -6,10 +6,12 @@ import com.newlanders.new_lands.registry.Blocks;
 import net.minecraft.block.Block;
 import net.minecraft.block.SnowBlock;
 import net.minecraft.fluid.Fluids;
+import net.minecraft.util.Direction;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IWorld;
 import net.minecraft.world.World;
+import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.Biomes;
 import net.minecraft.world.gen.ChunkGenerator;
 import net.minecraft.world.gen.GenerationSettings;
@@ -31,12 +33,16 @@ public class SandLayerFeature extends Feature<ProbabilityConfig> {
 	public boolean place(IWorld worldIn, ChunkGenerator<? extends GenerationSettings> generator, Random rand, BlockPos pos, ProbabilityConfig config) {
 		for (int x=0;x<16;x++) {
 			for (int z = 0; z < 16; z++) {
-				BlockPos pos1 = new BlockPos(pos.getX() + x, worldIn.getHeight(Heightmap.Type.OCEAN_FLOOR_WG, pos.add(x, 0, z)).getY(), pos.getZ() + z);
+				BlockPos pos1 = new BlockPos(pos.getX() + x, getHeight(worldIn,pos.getX()+x,pos.getZ()+z), pos.getZ() + z);
 				ResourceLocation biome = worldIn.getBiome(pos1).getRegistryName();
+				Biome biome1=worldIn.getBiome(pos1);
 				if (
 						biome != null && (
-								worldIn.getBiome(pos1).equals(Biomes.BEACH) ||
-								biome.getPath().contains("ocean")
+								biome1.equals(Biomes.BEACH) ||
+								biome.getPath().contains("ocean")||
+								biome1.equals(Biomes.DESERT)||
+								biome1.equals(Biomes.DESERT_HILLS)||
+								biome1.equals(Biomes.DESERT_LAKES)
 						)) {
 					if (!worldIn.getBlockState(pos1.down()).getBlock().equals(Blocks.SAND_LAYER.getObject1().get())) {
 						if (!worldIn.getBlockState(pos1).getBlock().equals(Blocks.SAND_LAYER.getObject1().get())) {
@@ -67,7 +73,7 @@ public class SandLayerFeature extends Feature<ProbabilityConfig> {
 	}
 	
 	public int getLayerHeight(IWorld world,BlockPos pos) {
-		int y=world.getHeight(Heightmap.Type.OCEAN_FLOOR_WG,pos).getY();
+//		int y=world.getHeight(Heightmap.Type.OCEAN_FLOOR_WG,pos).getY();
 		double height=0;
 //		for (int x2=-3;x2<=3;x2++) {
 //			for (int z2=-3;z2<=3;z2++) {
@@ -95,11 +101,11 @@ public class SandLayerFeature extends Feature<ProbabilityConfig> {
 		
 		BlockPos pos=new BlockPos(x,0,z);
 		double val=0;
-		int y=world.getHeight(Heightmap.Type.OCEAN_FLOOR_WG,pos).getY();
+		int y=getHeight(world,pos.getX(),pos.getZ());
 		for (int xPos=minX;xPos<maxX;xPos++) {
 			for (int zPos=minZ;zPos<maxZ;zPos++) {
-				int y2=world.getHeight(Heightmap.Type.OCEAN_FLOOR_WG,new BlockPos(xPos,0,zPos)).getY();
-				if (!world.getBlockState(world.getHeight(Heightmap.Type.OCEAN_FLOOR_WG,new BlockPos(xPos,0,zPos))).getBlock().equals(Blocks.SAND_LAYER.getObject1().get())) {
+				int y2=getHeight(world,xPos,zPos);
+				if (!world.getBlockState(new BlockPos(xPos,getHeight(world,xPos,zPos),zPos)).getBlock().equals(Blocks.SAND_LAYER.getObject1().get())) {
 					if (y2>y) {
 						val+=2;
 					}
@@ -108,5 +114,13 @@ public class SandLayerFeature extends Feature<ProbabilityConfig> {
 			}
 		}
 		return val;
+	}
+	
+	public int getHeight(IWorld worldIn,int x,int z) {
+		int y=worldIn.getHeight(Heightmap.Type.OCEAN_FLOOR_WG,x,z);
+		if (!worldIn.getBlockState(new BlockPos(x,y-1,z).down()).isSolidSide(worldIn,new BlockPos(x,y-1,z),Direction.UP)) {
+			y=worldIn.getHeight(Heightmap.Type.OCEAN_FLOOR,x,z);
+		}
+		return y;
 	}
 }

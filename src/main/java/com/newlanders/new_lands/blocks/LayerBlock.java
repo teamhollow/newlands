@@ -5,6 +5,8 @@ import net.minecraft.block.material.Material;
 import net.minecraft.fluid.Fluids;
 import net.minecraft.fluid.IFluidState;
 import net.minecraft.item.BlockItemUseContext;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
 import net.minecraft.pathfinding.PathType;
 import net.minecraft.state.BooleanProperty;
 import net.minecraft.state.StateContainer;
@@ -15,13 +17,29 @@ import net.minecraft.world.IBlockReader;
 import net.minecraft.world.IWorld;
 import net.minecraft.world.IWorldReader;
 import net.minecraft.world.server.ServerWorld;
+import net.minecraft.world.storage.loot.LootContext;
 
 import javax.annotation.Nullable;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
+import java.util.function.Supplier;
 
 public class LayerBlock extends SnowBlock implements IWaterLoggable {
-	public LayerBlock() {
+	private final Supplier<Item> itemSupplier;
+	public LayerBlock(Supplier<Item> itemIn) {
 		super(Block.Properties.create(Material.SAND).hardnessAndResistance(0.1F).sound(SoundType.SAND));
+		itemSupplier=itemIn;
+	}
+	
+	@Override
+	public List<ItemStack> getDrops(BlockState state, LootContext.Builder builder) {
+		int i=state.get(LAYERS);
+		ArrayList<ItemStack> stacks = new ArrayList<>(super.getDrops(state, builder));
+		if (stacks.size()==0) {
+			stacks.add(new ItemStack(itemSupplier.get(),i));
+		}
+		return stacks;
 	}
 	
 	public static final BooleanProperty WATERLOGGED = BlockStateProperties.WATERLOGGED;

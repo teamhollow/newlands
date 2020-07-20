@@ -1,0 +1,6 @@
+{
+    "parent": "block/cross",
+    "textures": {
+        "cross": "new_lands:block/tropical_palm_sapling"
+    }
+}

@@ -1,0 +1,12 @@
+{
+  "block.new_lands.sand_layer": "Sand Layer",
+  "block.new_lands.tropical_palm_leaves": "Tropical Palm Leaves",
+  "block.new_lands.stripped_tropical_palm_log": "Stripped Tropical Palm Log",
+  "block.new_lands.tropical_palm_log": "Tropical Palm Log",
+  "block.new_lands.tropical_palm_planks": "Tropical Palm Planks",
+  "block.new_lands.tropical_palm_door": "Tropical Palm Door",
+  "block.new_lands.tropical_palm_trapdoor": "Tropical Palm Trapdoor",
+  "block.new_lands.tropical_palm_sapling": "Tropical Palm Sapling",
+  "itemGroup.newlands_building": "New Lands Building Blocks",
+  "itemGroup.newlands_worldgen": "New Lands World Generation"
+}

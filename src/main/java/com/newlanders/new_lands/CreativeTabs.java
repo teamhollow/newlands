@@ -11,4 +11,10 @@ public class CreativeTabs {
 			return new ItemStack(Blocks.SAND_LAYER.getObject2().get());
 		}
 	};
+	public static final ItemGroup BUILDING = new ItemGroup("newlands_building") {
+		@Override
+		public ItemStack createIcon() {
+			return new ItemStack(Blocks.TROPICAL_PALM_PLANKS.getObject2().get());
+		}
+	};
 }
