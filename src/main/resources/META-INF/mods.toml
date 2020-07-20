@@ -27,7 +27,7 @@ displayName="New_lands" #mandatory
 authors="GiantLuigi4, Evo, BretonAerouant, Evo, Ninni, Skaliber, Bean" #optional
 # The description text for the mod (multi line!) (#mandatory)
 description='''
-
+Overhauling the vanilla biomes.
 '''
 # A dependency - use the . to indicate dependency for a specific modid. Dependencies are optional.
 #[[dependencies.new_lands]] #optional
