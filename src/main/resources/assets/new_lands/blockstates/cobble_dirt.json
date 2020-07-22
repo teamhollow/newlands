@@ -1,0 +1,10 @@
+{
+    "variants": {
+        "": [
+            { "model": "new_lands:block/cobble_dirt" },
+            { "model": "new_lands:block/cobble_dirt", "y": 90 },
+            { "model": "new_lands:block/cobble_dirt", "y": 180 },
+            { "model": "new_lands:block/cobble_dirt", "y": 270 }
+        ]
+    }
+}

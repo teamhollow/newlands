@@ -1,4 +1,4 @@
-package com.newlanders.new_lands.client.block_colors;
+package com.newlanders.new_lands.client.block.colors;
 
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
