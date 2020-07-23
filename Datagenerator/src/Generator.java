@@ -50,8 +50,8 @@ public class Generator {
 	public static final String gameDir = System.getProperty("user.dir");
 	
 	public static void main(String[] args) {
-		blocks.forEach((b)-> LogGenerator.generateBlock(b,true));
-		blocksNoLoot.forEach((b)-> LogGenerator.generateBlock(b,false));
+		blocks.forEach((b)-> BlockGenerator.generateBlock(b,true));
+		blocksNoLoot.forEach((b)-> BlockGenerator.generateBlock(b,false));
 		leaves.forEach(LeavesGenerator::generateBlock);
 		logBlocks.forEach((b)->LogGenerator.generateBlock(b,true));
 		StringBuilder translation = new StringBuilder("{\n");
