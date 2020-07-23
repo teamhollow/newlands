@@ -62,7 +62,7 @@ public class Blocks {
 	//TERRAIN
 	public static final BiRegistry<RegistryObject<Block>, RegistryObject<Item>> COBBLE_DIRT = registerBlockWithItem("cobble_dirt", new Block(Block.Properties.from(net.minecraft.block.Blocks.COBBLESTONE)), 64, CreativeTabs.WORLD_GEN, null);
 	public static final BiRegistry<RegistryObject<Block>, RegistryObject<Item>> COBBLE_SAND = registerBlockWithItem("sandy_cobblestone", new Block(Block.Properties.from(net.minecraft.block.Blocks.COBBLESTONE)), 64, CreativeTabs.WORLD_GEN, null);
-	public static final BiRegistry<RegistryObject<Block>, RegistryObject<Item>> SHORE_ROCK = registerBlockWithItem("shore_rock", new Block(Block.Properties.from(net.minecraft.block.Blocks.ANDESITE)), 64, CreativeTabs.WORLD_GEN, null);
+	public static final BiRegistry<RegistryObject<Block>, RegistryObject<Item>> SHOREROCK = registerBlockWithItem("shorerock", new Block(Block.Properties.from(net.minecraft.block.Blocks.ANDESITE)), 64, CreativeTabs.WORLD_GEN, null);
 	
 	public static BiRegistry<RegistryObject<Block>, RegistryObject<Item>> registerBlockWithItem(String name, Block block, int maxStack, @Nullable ItemGroup group, @Nullable Rarity rarity) {
 		Item.Properties properties = new Item.Properties();
