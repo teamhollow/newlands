@@ -30,7 +30,7 @@ public class NLBoatEntity extends BoatEntity {
 	
 	@Override
 	public Item getItemBoat() {
-		switch(this.getBoatType()) {
+		switch (this.getBoatType()) {
 			case OAK:
 			default:
 				return com.newlanders.new_lands.registry.Items.TROPICAL_BOAT.get();

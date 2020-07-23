@@ -22,24 +22,24 @@ import org.apache.logging.log4j.Logger;
 public class NewLands {
     public static final Logger LOGGER = LogManager.getLogger();
     
-    public static final String ModID="new_lands";
+    public static final String ModID = "new_lands";
     
     public NewLands() {
-        IEventBus bus=FMLJavaModLoadingContext.get().getModEventBus();
+        IEventBus bus = FMLJavaModLoadingContext.get().getModEventBus();
         
         bus.addListener(this::doClientStuff);
         bus.addListener(this::commonSetup);
         Items.ITEMS.register(bus);
         Blocks.BLOCKS.register(bus);
         Entities.ENTITIES.register(bus);
-
+    
         MinecraftForge.EVENT_BUS.register(this);
     }
     
     private void commonSetup(FMLCommonSetupEvent event) {
         for (Biome biome : ForgeRegistries.BIOMES) {
             biome.addFeature(GenerationStage.Decoration.TOP_LAYER_MODIFICATION, new SandLayerFeature(ProbabilityConfig::deserialize).withConfiguration(new ProbabilityConfig(100)));
-            biome.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION,new PalmTreeFeature(ProbabilityConfig::deserialize).withConfiguration(new ProbabilityConfig(100)));
+            biome.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, new PalmTreeFeature(ProbabilityConfig::deserialize).withConfiguration(new ProbabilityConfig(100)));
         }
     }
     

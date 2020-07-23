@@ -1,5 +1,5 @@
 {
     "variants": {
-        "": { "model": "new_lands:block/palm_leaves" }
+        "": { "model": "new_lands:block/tropical_palm_leaves" }
     }
 }

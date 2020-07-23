@@ -21,7 +21,7 @@ public class FeatureSapling extends SaplingBlock {
 	
 	public FeatureSapling(ITreeFeature treeIn, Properties properties) {
 		super(new OakTree(), properties);
-		this.tree=treeIn;
+		this.tree = treeIn;
 	}
 	
 	@Override
@@ -38,15 +38,16 @@ public class FeatureSapling extends SaplingBlock {
 		if (p_226942_3_.get(STAGE) == 0) {
 			p_226942_1_.setBlockState(p_226942_2_, p_226942_3_.cycle(STAGE), 4);
 		} else {
-			if (!net.minecraftforge.event.ForgeEventFactory.saplingGrowTree(p_226942_1_, p_226942_4_, p_226942_2_)) return;
+			if (!net.minecraftforge.event.ForgeEventFactory.saplingGrowTree(p_226942_1_, p_226942_4_, p_226942_2_))
+				return;
 			p_226942_1_.setBlockState(p_226942_2_, Blocks.AIR.getDefaultState());
-			this.tree.generate(p_226942_1_,p_226942_2_,p_226942_1_.getRandom(),0,0,0);
+			this.tree.generate(p_226942_1_, p_226942_2_, p_226942_1_.getRandom(), 0, 0, 0);
 		}
 	}
 	
 	@Override
 	protected boolean isValidGround(BlockState state, IBlockReader worldIn, BlockPos pos) {
 		Block block = state.getBlock();
-		return super.isValidGround(state, worldIn, pos)||block.isIn(Tags.Blocks.SAND);
+		return super.isValidGround(state, worldIn, pos) || block.isIn(Tags.Blocks.SAND);
 	}
 }

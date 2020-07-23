@@ -27,17 +27,18 @@ import java.util.function.Supplier;
 
 public class LayerBlock extends SnowBlock implements IWaterLoggable {
 	private final Supplier<Item> itemSupplier;
+	
 	public LayerBlock(Supplier<Item> itemIn) {
 		super(Block.Properties.create(Material.SAND).hardnessAndResistance(0.1F).sound(SoundType.SAND));
-		itemSupplier=itemIn;
+		itemSupplier = itemIn;
 	}
 	
 	@Override
 	public List<ItemStack> getDrops(BlockState state, LootContext.Builder builder) {
-		int i=state.get(LAYERS);
+		int i = state.get(LAYERS);
 		ArrayList<ItemStack> stacks = new ArrayList<>(super.getDrops(state, builder));
-		if (stacks.size()==0) {
-			stacks.add(new ItemStack(itemSupplier.get(),i));
+		if (stacks.size() == 0) {
+			stacks.add(new ItemStack(itemSupplier.get(), i));
 		}
 		return stacks;
 	}
@@ -56,7 +57,7 @@ public class LayerBlock extends SnowBlock implements IWaterLoggable {
 	
 	@Override
 	public boolean allowsMovement(BlockState state, IBlockReader worldIn, BlockPos pos, PathType type) {
-		switch(type) {
+		switch (type) {
 			case LAND:
 			case WATER:
 				return state.get(LAYERS) < 5;
@@ -66,7 +67,8 @@ public class LayerBlock extends SnowBlock implements IWaterLoggable {
 	}
 	
 	@Override
-	public void tick(BlockState state, ServerWorld worldIn, BlockPos pos, Random rand) {}
+	public void tick(BlockState state, ServerWorld worldIn, BlockPos pos, Random rand) {
+	}
 	
 	@Nullable
 	@Override
@@ -79,7 +81,7 @@ public class LayerBlock extends SnowBlock implements IWaterLoggable {
 		if (blockstate1.get(LAYERS).equals(8)) {
 			return Blocks.SAND.getDefaultState();
 		}
-		return blockstate1==null?null:blockstate1.with(WATERLOGGED,ifluidstate.getFluid().equals(Fluids.WATER));
+		return blockstate1 == null ? null : blockstate1.with(WATERLOGGED, ifluidstate.getFluid().equals(Fluids.WATER));
 	}
 	
 	public BlockState updatePostPlacement(BlockState stateIn, Direction facing, BlockState facingState, IWorld worldIn, BlockPos currentPos, BlockPos facingPos) {

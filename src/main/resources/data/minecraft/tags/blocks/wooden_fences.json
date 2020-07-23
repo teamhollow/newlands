@@ -1,0 +1,11 @@
+{
+  "replace": false,
+  "values": [
+    "minecraft:oak_fence",
+    "new_lands:tropical_palm_fence",
+    "minecraft:dark_oak_fence",
+    "minecraft:spruce_fence",
+    "minecraft:birch_fence",
+    "minecraft:jungle_fence"
+  ]
+}

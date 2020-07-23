@@ -12,6 +12,6 @@ import net.minecraftforge.registries.ForgeRegistries;
 public class Entities {
 	public static final DeferredRegister<EntityType<?>> ENTITIES = new DeferredRegister<>(ForgeRegistries.ENTITIES, NewLands.ModID);
 	
-	public static RegistryObject<EntityType<NLBoatEntity>> BOAT = ENTITIES.register("nlboat",()->EntityType.Builder.<NLBoatEntity>create(NLBoatEntity::new, EntityClassification.MISC).size(1.375F, 0.5625F).build("nlboat"));
-	public static RegistryObject<EntityType<FishermanEntity>> FISHERMAN = ENTITIES.register("fisherman",()->EntityType.Builder.<FishermanEntity>create(FishermanEntity::new, EntityClassification.MISC).size(0.6F, 1.95F).build("fisherman"));
+	public static RegistryObject<EntityType<NLBoatEntity>> BOAT = ENTITIES.register("nlboat", () -> EntityType.Builder.<NLBoatEntity>create(NLBoatEntity::new, EntityClassification.MISC).size(1.375F, 0.5625F).build("nlboat"));
+	public static RegistryObject<EntityType<FishermanEntity>> FISHERMAN = ENTITIES.register("fisherman", () -> EntityType.Builder.<FishermanEntity>create(FishermanEntity::new, EntityClassification.MISC).size(0.6F, 1.95F).build("fisherman"));
 }

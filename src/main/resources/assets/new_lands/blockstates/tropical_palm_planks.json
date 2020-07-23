@@ -1,5 +1,7 @@
 {
     "variants": {
-        "": { "model": "new_lands:block/palm_planks" }
+        "axis=y":    { "model": "new_lands:block/tropical_palm_planks" },
+        "axis=z":     { "model": "new_lands:block/tropical_palm_planks", "x": 90 },
+        "axis=x":     { "model": "new_lands:block/tropical_palm_planks", "x": 90, "y": 90 }
     }
 }

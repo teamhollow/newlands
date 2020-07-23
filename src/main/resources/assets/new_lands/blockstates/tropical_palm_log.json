@@ -1,7 +1,7 @@
 {
     "variants": {
-        "axis=y":    { "model": "new_lands:block/palm_log" },
-        "axis=z":     { "model": "new_lands:block/palm_log", "x": 90 },
-        "axis=x":     { "model": "new_lands:block/palm_log", "x": 90, "y": 90 }
+        "axis=y":    { "model": "new_lands:block/tropical_palm_log" },
+        "axis=z":     { "model": "new_lands:block/tropical_palm_log", "x": 90 },
+        "axis=x":     { "model": "new_lands:block/tropical_palm_log", "x": 90, "y": 90 }
     }
 }

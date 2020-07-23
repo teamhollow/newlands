@@ -24,7 +24,7 @@ public class NLBoatItem extends BoatItem {
 	
 	public NLBoatItem(BoatEntity.Type typeIn, Properties properties) {
 		super(typeIn, properties);
-		this.boatType=typeIn;
+		this.boatType = typeIn;
 	}
 	
 	private static final Predicate<Entity> field_219989_a = EntityPredicates.NOT_SPECTATING.and(Entity::canBeCollidedWith);
@@ -41,8 +41,8 @@ public class NLBoatItem extends BoatItem {
 			if (!list.isEmpty()) {
 				Vec3d vec3d1 = playerIn.getEyePosition(1.0F);
 				
-				for(Entity entity : list) {
-					AxisAlignedBB axisalignedbb = entity.getBoundingBox().grow((double)entity.getCollisionBorderSize());
+				for (Entity entity : list) {
+					AxisAlignedBB axisalignedbb = entity.getBoundingBox().grow((double) entity.getCollisionBorderSize());
 					if (axisalignedbb.contains(vec3d1)) {
 						return ActionResult.resultPass(itemstack);
 					}

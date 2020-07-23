@@ -1,6 +1,7 @@
 {
-    "parent": "block/cube_all",
+    "parent": "block/cube_column",
     "textures": {
-        "all": "new_lands:block/shorerock"
+        "end": "new_lands:block/shore_rock",
+        "side": "new_lands:block/shore_rock"
     }
 }

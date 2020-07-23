@@ -1,0 +1,7 @@
+{
+    "parent": "block/cube_column",
+    "textures": {
+        "end": "new_lands:block/sandy_cobblestone",
+        "side": "new_lands:block/sandy_cobblestone"
+    }
+}

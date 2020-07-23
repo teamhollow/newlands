@@ -1,0 +1,7 @@
+{
+    "variants": {
+        "type=bottom": { "model": "new_lands:block/tropical_palm_slab" },
+        "type=top": { "model": "new_lands:block/tropical_palm_slab_top" },
+        "type=double": { "model": "new_lands:block/tropical_palm_planks" }
+    }
+}

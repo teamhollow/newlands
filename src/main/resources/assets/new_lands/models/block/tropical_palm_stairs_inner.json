@@ -1,0 +1,8 @@
+{
+    "parent": "block/inner_stairs",
+    "textures": {
+        "bottom": "new_lands:block/tropical_palm_planks",
+        "top": "new_lands:block/tropical_palm_planks",
+        "side": "new_lands:block/tropical_palm_planks"
+    }
+}

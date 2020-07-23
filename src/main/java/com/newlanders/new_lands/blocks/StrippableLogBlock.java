@@ -23,18 +23,18 @@ public class StrippableLogBlock extends LogBlock {
 	
 	public StrippableLogBlock(MaterialColor verticalColorIn, Properties properties, Supplier<Block> strippedVariant) {
 		super(verticalColorIn, properties);
-		stripped=strippedVariant;
+		stripped = strippedVariant;
 	}
 	
 	@Override
 	public ActionResultType onBlockActivated(BlockState state, World worldIn, BlockPos pos, PlayerEntity player, Hand handIn, BlockRayTraceResult hit) {
 		if (player.getHeldItem(handIn).getToolTypes().contains(ToolType.AXE)) {
-			AtomicReference<BlockState> state1=new AtomicReference<>(stripped.get().getDefaultState());
-			state.getProperties().forEach(property->{
+			AtomicReference<BlockState> state1 = new AtomicReference<>(stripped.get().getDefaultState());
+			state.getProperties().forEach(property -> {
 				state1.set(applyProperty(state, state1.get(), property));
 			});
-			worldIn.setBlockState(pos,state1.get());
-			worldIn.playSound(pos.getX(),pos.getY(),pos.getZ(), SoundEvents.ITEM_AXE_STRIP, SoundCategory.BLOCKS,1,1,false);
+			worldIn.setBlockState(pos, state1.get());
+			worldIn.playSound(pos.getX(), pos.getY(), pos.getZ(), SoundEvents.ITEM_AXE_STRIP, SoundCategory.BLOCKS, 1, 1, false);
 			if (!player.isCreative()) {
 				player.getHeldItem(handIn).damageItem(1, player, (p_220040_1_) -> p_220040_1_.sendBreakAnimation(handIn));
 			}
@@ -44,7 +44,7 @@ public class StrippableLogBlock extends LogBlock {
 		return super.onBlockActivated(state, worldIn, pos, player, handIn, hit);
 	}
 	
-	public <A extends Comparable<A>> BlockState applyProperty(BlockState sourceState,BlockState newState,IProperty<A> property) {
-		return newState.with(property,sourceState.get(property));
+	public <A extends Comparable<A>> BlockState applyProperty(BlockState sourceState, BlockState newState, IProperty<A> property) {
+		return newState.with(property, sourceState.get(property));
 	}
 }

@@ -31,29 +31,29 @@ public class SandLayerFeature extends Feature<ProbabilityConfig> {
 	@Override
 	@ParametersAreNonnullByDefault
 	public boolean place(IWorld worldIn, ChunkGenerator<? extends GenerationSettings> generator, Random rand, BlockPos pos, ProbabilityConfig config) {
-		for (int x=0;x<16;x++) {
+		for (int x = 0; x < 16; x++) {
 			for (int z = 0; z < 16; z++) {
-				BlockPos pos1 = new BlockPos(pos.getX() + x, getHeight(worldIn,pos.getX()+x,pos.getZ()+z), pos.getZ() + z);
+				BlockPos pos1 = new BlockPos(pos.getX() + x, getHeight(worldIn, pos.getX() + x, pos.getZ() + z), pos.getZ() + z);
 				ResourceLocation biome = worldIn.getBiome(pos1).getRegistryName();
-				Biome biome1=worldIn.getBiome(pos1);
+				Biome biome1 = worldIn.getBiome(pos1);
 				if (
 						biome != null && (
 								biome1.equals(Biomes.BEACH) ||
-								biome.getPath().contains("ocean")||
-								biome1.equals(Biomes.DESERT)||
-								biome1.equals(Biomes.DESERT_HILLS)||
-								biome1.equals(Biomes.DESERT_LAKES)
+										biome.getPath().contains("ocean") ||
+										biome1.equals(Biomes.DESERT) ||
+										biome1.equals(Biomes.DESERT_HILLS) ||
+										biome1.equals(Biomes.DESERT_LAKES)
 						)) {
 					if (!worldIn.getBlockState(pos1.down()).getBlock().equals(Blocks.SAND_LAYER.getObject1().get())) {
 						if (!worldIn.getBlockState(pos1).getBlock().equals(Blocks.SAND_LAYER.getObject1().get())) {
-							if (worldIn.getBlockState(pos1).getRaytraceShape(worldIn, pos).isEmpty()&&worldIn.getBlockState(pos1).getCollisionShape(worldIn, pos).isEmpty()&&worldIn.getBlockState(pos1).getShape(worldIn, pos).isEmpty()) {
+							if (worldIn.getBlockState(pos1).getRaytraceShape(worldIn, pos).isEmpty() && worldIn.getBlockState(pos1).getCollisionShape(worldIn, pos).isEmpty() && worldIn.getBlockState(pos1).getShape(worldIn, pos).isEmpty()) {
 								int height = getLayerHeight(worldIn, pos1);
 								if (height != 0) {
 									if (
-											worldIn.getBlockState(pos1.down()).equals(net.minecraft.block.Blocks.ICE.getDefaultState())||
-											worldIn.getBlockState(pos1.down()).equals(net.minecraft.block.Blocks.PACKED_ICE.getDefaultState())||
-											worldIn.getBlockState(pos1.down()).equals(net.minecraft.block.Blocks.SNOW_BLOCK.getDefaultState())||
-											worldIn.getBlockState(pos1.down()).equals(net.minecraft.block.Blocks.BLUE_ICE.getDefaultState())
+											worldIn.getBlockState(pos1.down()).equals(net.minecraft.block.Blocks.ICE.getDefaultState()) ||
+													worldIn.getBlockState(pos1.down()).equals(net.minecraft.block.Blocks.PACKED_ICE.getDefaultState()) ||
+													worldIn.getBlockState(pos1.down()).equals(net.minecraft.block.Blocks.SNOW_BLOCK.getDefaultState()) ||
+													worldIn.getBlockState(pos1.down()).equals(net.minecraft.block.Blocks.BLUE_ICE.getDefaultState())
 									) {
 									} else {
 										if (height == 8) {
@@ -72,54 +72,42 @@ public class SandLayerFeature extends Feature<ProbabilityConfig> {
 		return true;
 	}
 	
-	public int getLayerHeight(IWorld world,BlockPos pos) {
-//		int y=world.getHeight(Heightmap.Type.OCEAN_FLOOR_WG,pos).getY();
-		double height=0;
-//		for (int x2=-3;x2<=3;x2++) {
-//			for (int z2=-3;z2<=3;z2++) {
-//				int y2=world.getHeight(Heightmap.Type.OCEAN_FLOOR_WG,pos.add(x2,0,z2)).getY();
-//				if (!world.getBlockState(world.getHeight(Heightmap.Type.OCEAN_FLOOR_WG,pos.add(x2,0,z2))).getBlock().equals(Blocks.SAND_LAYER.getObject1().get())) {
-//					if (y2>y) {
-//						height+=2;
-//					}
-//				}
-//				height/=1.2f;
-//			}
-//		}
-		height=Math.max(height,getQuadrant(1,1,0,0,pos.getX(),pos.getZ(),world));
-		height=Math.max(height,getQuadrant(0,1,1,0,pos.getX(),pos.getZ(),world));
-		height=Math.max(height,getQuadrant(0,0,1,1,pos.getX(),pos.getZ(),world));
-		height=Math.max(height,getQuadrant(1,0,0,1,pos.getX(),pos.getZ(),world));
-		return (int)Math.min(8,Math.max(0,height));
+	public int getLayerHeight(IWorld world, BlockPos pos) {
+		double height = 0;
+		height = Math.max(height, getQuadrant(1, 1, 0, 0, pos.getX(), pos.getZ(), world));
+		height = Math.max(height, getQuadrant(0, 1, 1, 0, pos.getX(), pos.getZ(), world));
+		height = Math.max(height, getQuadrant(0, 0, 1, 1, pos.getX(), pos.getZ(), world));
+		height = Math.max(height, getQuadrant(1, 0, 0, 1, pos.getX(), pos.getZ(), world));
+		return (int) Math.min(8, Math.max(0, height));
 	}
 	
 	public double getQuadrant(int minusX, int minusZ, int plusX, int plusZ, int x, int z, IWorld world) {
-		int minX=x-(3*minusX);
-		int minZ=z-(3*minusZ);
-		int maxX=x+(3*plusX);
-		int maxZ=z+(3*plusZ);
+		int minX = x - (5 * minusX);
+		int minZ = z - (5 * minusZ);
+		int maxX = x + (5 * plusX);
+		int maxZ = z + (5 * plusZ);
 		
-		BlockPos pos=new BlockPos(x,0,z);
-		double val=0;
-		int y=getHeight(world,pos.getX(),pos.getZ());
-		for (int xPos=minX;xPos<maxX;xPos++) {
-			for (int zPos=minZ;zPos<maxZ;zPos++) {
-				int y2=getHeight(world,xPos,zPos);
-				if (!world.getBlockState(new BlockPos(xPos,getHeight(world,xPos,zPos),zPos)).getBlock().equals(Blocks.SAND_LAYER.getObject1().get())) {
-					if (y2>y) {
-						val+=2;
+		BlockPos pos = new BlockPos(x, 0, z);
+		double val = 0;
+		int y = getHeight(world, pos.getX(), pos.getZ());
+		for (int xPos = minX; xPos < maxX; xPos++) {
+			for (int zPos = minZ; zPos < maxZ; zPos++) {
+				int y2 = getHeight(world, xPos, zPos);
+				if (!world.getBlockState(new BlockPos(xPos, getHeight(world, xPos, zPos), zPos)).getBlock().equals(Blocks.SAND_LAYER.getObject1().get())) {
+					if (y2 > y) {
+						val += 2;
 					}
 				}
-				val/=1.2f;
+				val /= 1.2f;
 			}
 		}
 		return val;
 	}
 	
-	public int getHeight(IWorld worldIn,int x,int z) {
-		int y=worldIn.getHeight(Heightmap.Type.OCEAN_FLOOR_WG,x,z);
-		if (!worldIn.getBlockState(new BlockPos(x,y-1,z).down()).isSolidSide(worldIn,new BlockPos(x,y-1,z),Direction.UP)) {
-			y=worldIn.getHeight(Heightmap.Type.OCEAN_FLOOR,x,z);
+	public int getHeight(IWorld worldIn, int x, int z) {
+		int y = worldIn.getHeight(Heightmap.Type.OCEAN_FLOOR_WG, x, z);
+		if (!worldIn.getBlockState(new BlockPos(x, y - 1, z).down()).isSolidSide(worldIn, new BlockPos(x, y - 1, z), Direction.UP)) {
+			y = worldIn.getHeight(Heightmap.Type.OCEAN_FLOOR, x, z);
 		}
 		return y;
 	}

@@ -1,0 +1,6 @@
+{
+    "parent": "block/button",
+    "textures": {
+        "texture": "new_lands:block/tropical_palm_planks"
+    }
+}

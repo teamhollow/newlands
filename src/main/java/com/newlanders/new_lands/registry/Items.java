@@ -13,6 +13,7 @@ import net.minecraftforge.registries.ForgeRegistries;
 //GiantLuigi4:MORE COPYING FROM MYSELF!!!
 public class Items {
 	public static final DeferredRegister<Item> ITEMS = new DeferredRegister<>(ForgeRegistries.ITEMS, NewLands.ModID);
-
-	public static RegistryObject<Item> TROPICAL_BOAT = ITEMS.register("tropical_palm_boat",()->new NLBoatItem(BoatEntity.Type.OAK, new Item.Properties().group(CreativeTabs.NAVIGATION)));
+	
+	//NAVIGATION
+	public static RegistryObject<Item> TROPICAL_BOAT = ITEMS.register("tropical_palm_boat", () -> new NLBoatItem(BoatEntity.Type.OAK, new Item.Properties().group(CreativeTabs.NAVIGATION)));
 }
