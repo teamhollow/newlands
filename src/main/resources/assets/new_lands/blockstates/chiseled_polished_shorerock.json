@@ -1,0 +1,7 @@
+{
+    "variants": {
+        "": [
+            { "model": "new_lands:block/chiseled_polished_shorerock" }
+        ]
+    }
+}

@@ -1,0 +1,6 @@
+{
+    "parent": "item/generated",
+    "textures": {
+        "layer0": "new_lands:item/magnolia_door"
+    }
+}

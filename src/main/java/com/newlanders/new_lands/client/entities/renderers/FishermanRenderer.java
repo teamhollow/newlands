@@ -58,7 +58,7 @@ public class FishermanRenderer extends EntityRenderer<FishermanEntity> {
 			matrixStackIn.translate(0, 0.35f, 0);
 			if (entityIn.getRidingEntity() instanceof BoatEntity && entityIn.getRidingEntity().getPassengers().size() == 1) {
 				matrixStackIn.translate(0, 0, 0.25);
-				if (entityIn.getBrain().getSchedule().getScheduledActivity((int) entityIn.world.getDayTime()).equals(Activity.WORK)&&FishermanEntity.checkBoat(entityIn)) {
+				if (entityIn.getBrain().getSchedule().getScheduledActivity((int) entityIn.world.getDayTime()).equals(Activity.WORK) && FishermanEntity.checkBoat(entityIn)) {
 					if (!(entityIn.ticksExisted % 200 <= 40)) {
 						IVertexBuilder fishing = bufferIn.getBuffer(RenderType.getLines());
 						double yOff = 0;

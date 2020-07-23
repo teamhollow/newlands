@@ -1,13 +1,13 @@
 import java.io.File;
 import java.io.FileWriter;
 
-public class NormalBlocks {
+public class BlockGenerator {
 	public static void generateBlock(String name, boolean loot) {
 		String modName = name.split(":")[0].replace(":", "");
 		String blockName = name.split(":")[1].replace(":", "");
 		
-		String path = Generator.gameDir + "\\src\\main\\resources\\assets\\" + modName + "\\";
-		String path2 = Generator.gameDir + "\\src\\main\\resources\\data\\" + modName + "\\";
+		String path = DataGenerator.gameDir + "\\src\\main\\resources\\assets\\" + modName + "\\";
+		String path2 = DataGenerator.gameDir + "\\src\\main\\resources\\data\\" + modName + "\\";
 		File blockstate = new File(path + "blockstates\\" + blockName + ".json");
 		try {
 			if (!blockstate.exists()) {
@@ -52,11 +52,11 @@ public class NormalBlocks {
 		}
 	}
 	
-	private final static String normalBlockState = "{\n" + "    \"variants\": {\n" + "        \"\": [\n" + "            { \"model\": \"%modid%:block/%blockid%\" }\n" + "        ]\n" + "    }\n" + "}";
+	private static final String normalBlockState = "{\n" + "    \"variants\": {\n" + "        \"\": [\n" + "            { \"model\": \"%modid%:block/%blockid%\" }\n" + "        ]\n" + "    }\n" + "}";
 	
-	private final static String normalBlockModel = "{\n" + "    \"parent\": \"block/cube_all\",\n" + "    \"textures\": {\n" + "        \"all\": \"%modid%:block/%blockid%\"\n" + "    }\n" + "}";
+	private static final String normalBlockModel = "{\n" + "    \"parent\": \"block/cube_all\",\n" + "    \"textures\": {\n" + "        \"all\": \"%modid%:block/%blockid%\"\n" + "    }\n" + "}";
 	
-	private final static String normalBlockItemModel = "{\n" + "    \"parent\": \"%modid%:block/%blockid%\"\n" + "}";
+	private static final String normalBlockItemModel = "{\n" + "    \"parent\": \"%modid%:block/%blockid%\"\n" + "}";
 	
-	private final static String normalBlockLootTable = "{\n" + "  \"type\": \"minecraft:block\",\n" + "  \"pools\": [\n" + "    {\n" + "      \"rolls\": 1,\n" + "      \"entries\": [\n" + "        {\n" + "          \"type\": \"minecraft:item\",\n" + "          \"name\": \"%modid%:%blockid%\"\n" + "        }\n" + "      ],\n" + "      \"conditions\": [\n" + "        {\n" + "          \"condition\": \"minecraft:survives_explosion\"\n" + "        }\n" + "      ]\n" + "    }\n" + "  ]\n" + "}";
+	private static final String normalBlockLootTable = "{\n" + "  \"type\": \"minecraft:block\",\n" + "  \"pools\": [\n" + "    {\n" + "      \"rolls\": 1,\n" + "      \"entries\": [\n" + "        {\n" + "          \"type\": \"minecraft:item\",\n" + "          \"name\": \"%modid%:%blockid%\"\n" + "        }\n" + "      ],\n" + "      \"conditions\": [\n" + "        {\n" + "          \"condition\": \"minecraft:survives_explosion\"\n" + "        }\n" + "      ]\n" + "    }\n" + "  ]\n" + "}";
 }

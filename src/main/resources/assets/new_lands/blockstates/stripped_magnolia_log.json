@@ -1,0 +1,7 @@
+{
+    "variants": {
+        "axis=y":    { "model": "new_lands:block/stripped_magnolia_log" },
+        "axis=z":     { "model": "new_lands:block/stripped_magnolia_log", "x": 90 },
+        "axis=x":     { "model": "new_lands:block/stripped_magnolia_log", "x": 90, "y": 90 }
+    }
+}

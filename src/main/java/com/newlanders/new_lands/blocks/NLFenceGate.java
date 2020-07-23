@@ -14,7 +14,7 @@ public class NLFenceGate extends FenceGateBlock {
 	@Override
 	public Vec3d getOffset(BlockState state, IBlockReader worldIn, BlockPos pos) {
 		if (state.get(IN_WALL)) {
-			return super.getOffset(state, worldIn, pos).add(0,-0.1875f,0);
+			return super.getOffset(state, worldIn, pos).add(0, -0.1875f, 0);
 		}
 		return super.getOffset(state, worldIn, pos);
 	}

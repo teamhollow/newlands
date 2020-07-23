@@ -1,7 +1,7 @@
 {
     "variants": {
-        "axis=y":    { "model": "new_lands:block/magnolia_leaves" },
-        "axis=z":     { "model": "new_lands:block/magnolia_leaves", "x": 90 },
-        "axis=x":     { "model": "new_lands:block/magnolia_leaves", "x": 90, "y": 90 }
+        "": [
+            { "model": "new_lands:block/magnolia_leaves" }
+        ]
     }
 }

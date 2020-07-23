@@ -82,8 +82,8 @@ public class FishermanEntity extends VillagerEntity {
 					this.startSleeping(this.getPosition());
 				}
 			}
-			if (this.getRidingEntity()!=null) {
-				GlobalPos home=getHome();
+			if (this.getRidingEntity() != null) {
+				GlobalPos home = getHome();
 				if (home.getPos().equals(this.getPosition())) {
 					this.stopRiding();
 				}
@@ -91,8 +91,8 @@ public class FishermanEntity extends VillagerEntity {
 			if (this.getRidingEntity() != null) {
 				if (this.getRidingEntity() instanceof BoatEntity) {
 					if (this.getRidingEntity().getPassengers().get(0).equals(this)) {
-						if (!getActivity(this).equals(Activity.WORK)||!checkBoat(this)) {
-							GlobalPos home=getHome();
+						if (!getActivity(this).equals(Activity.WORK) || !checkBoat(this)) {
+							GlobalPos home = getHome();
 //							boolean hasHome=home!=null;
 							boolean negativeX = false;
 							boolean negativeZ = false;
@@ -101,9 +101,9 @@ public class FishermanEntity extends VillagerEntity {
 							} else {
 								this.getRidingEntity().rotationPitch = 0;
 								this.getRidingEntity().rotationYaw = (float) (Math.atan2(this.getPositionVec().getX() - home.getPos().getX(), this.getPositionVec().getZ()) - home.getPos().getZ()) * 360 + 180;
-								Vec3d motionThis=this.getRidingEntity().getPositionVec().subtract(new Vec3d(home.getPos())).mul(1,0,1).normalize();
-								Vec3d motionBoat=this.getRidingEntity().getMotion();
-								motionThis=new Vec3d(motionThis.getX(),0,motionThis.getZ());
+								Vec3d motionThis = this.getRidingEntity().getPositionVec().subtract(new Vec3d(home.getPos())).mul(1, 0, 1).normalize();
+								Vec3d motionBoat = this.getRidingEntity().getMotion();
+								motionThis = new Vec3d(motionThis.getX(), 0, motionThis.getZ());
 								this.getRidingEntity().setMotion(motionThis.scale(-0.1f).add(motionBoat).normalize().scale(0.1f));
 							}
 							
@@ -147,11 +147,11 @@ public class FishermanEntity extends VillagerEntity {
 							}
 						}
 					} else {
-						if ((this.getRidingEntity().getPassengers().get(0) instanceof FishermanEntity)&&!this.getRidingEntity().getPassengers().get(0).equals(this)) {
+						if ((this.getRidingEntity().getPassengers().get(0) instanceof FishermanEntity) && !this.getRidingEntity().getPassengers().get(0).equals(this)) {
 							this.stopRiding();
 						}
 					}
-					if (this.getRidingEntity()!=null) {
+					if (this.getRidingEntity() != null) {
 						this.rotationYaw = this.getRidingEntity().rotationYaw;
 						this.prevRotationYaw = this.getRidingEntity().rotationYaw;
 						this.rotationYawHead = this.getRidingEntity().getRotationYawHead();
@@ -159,7 +159,7 @@ public class FishermanEntity extends VillagerEntity {
 					}
 				}
 			} else if (!nearestBoat.isEmpty() && checkBoat(this)) {
-				GlobalPos home=getHome();
+				GlobalPos home = getHome();
 				if (!home.getPos().equals(this.getPosition())) {
 					this.startRiding(nearestBoat.get(0));
 				}
@@ -168,7 +168,7 @@ public class FishermanEntity extends VillagerEntity {
 				if (this.world.getBlockState(new BlockPos(this.getPositionVec().add((this.getRidingEntity().getLookVec().scale(2))))).isSolid()) {
 					this.stopRiding();
 				}
-				if (this.getRidingEntity()!=null) {
+				if (this.getRidingEntity() != null) {
 					if (this.world.getBlockState(new BlockPos(this.getPositionVec().add((this.getRidingEntity().getLookVec().scale(-2))))).isSolid()) {
 						this.stopRiding();
 					}
@@ -177,9 +177,9 @@ public class FishermanEntity extends VillagerEntity {
 			List<BoatEntity> nearestBoats = this.world.getEntitiesWithinAABB(BoatEntity.class, this.getBoundingBox().expand(64, 64, 64).offset(-32, -32, -32));
 			if (!nearestBoats.isEmpty()) {
 				if (checkBoat(this)) {
-					BoatEntity boat=getNearestUnoccupiedBoat(nearestBoats,this);
-					if (boat!=null) {
-						GlobalPos home=getHome();
+					BoatEntity boat = getNearestUnoccupiedBoat(nearestBoats, this);
+					if (boat != null) {
+						GlobalPos home = getHome();
 						if (home.getPos().equals(this.getPosition())) {
 							this.moveController.setMoveTo(boat.getPosX(), boat.getPosY(), boat.getPosZ(), 0.5f);
 						}
@@ -201,15 +201,15 @@ public class FishermanEntity extends VillagerEntity {
 		return home;
 	}
 	
-	public BoatEntity getNearestUnoccupiedBoat(List<BoatEntity> boats,FishermanEntity target) {
-		double distanceBest=99999;
-		BoatEntity returnValue=null;
-		for (int i=0;i<boats.size();i++) {
-			BoatEntity boat=boats.get(i);
-			double distance=boat.getPositionVec().distanceTo(target.getPositionVec());
-			if (distanceBest>distance) {
-				distanceBest=Math.min(distanceBest,distance);
-				returnValue=boats.get(i);
+	public BoatEntity getNearestUnoccupiedBoat(List<BoatEntity> boats, FishermanEntity target) {
+		double distanceBest = 99999;
+		BoatEntity returnValue = null;
+		for (int i = 0; i < boats.size(); i++) {
+			BoatEntity boat = boats.get(i);
+			double distance = boat.getPositionVec().distanceTo(target.getPositionVec());
+			if (distanceBest > distance) {
+				distanceBest = Math.min(distanceBest, distance);
+				returnValue = boats.get(i);
 			}
 		}
 		return returnValue;

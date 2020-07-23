@@ -1,0 +1,6 @@
+{
+    "parent": "block/cube_all",
+    "textures": {
+        "all": "new_lands:block/polished_shorerock"
+    }
+}

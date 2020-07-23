@@ -111,7 +111,7 @@ public class TropicalFishermanModel extends EntityModel<Entity> {
 		//WAVE HAND
 		double xOff = Math.cos(entity.ticksExisted / 12f);
 		double zOff = Math.sin(entity.ticksExisted / 18f);
-
+		
 		if (entity.getRidingEntity() != null) {
 			//SIT
 			setRotationAngle(right_leg, (float) Math.toRadians(-90), (float) Math.toRadians(-15), 0);
@@ -126,7 +126,7 @@ public class TropicalFishermanModel extends EntityModel<Entity> {
 				setRotationAngle(left_arm, (float) Math.toRadians(Math.cos(rowTime) * 12 - 75), (float) Math.sin(rowTime) / 12f, 0);
 				
 				//FISHING
-				if (((VillagerEntity) entity).getBrain().getSchedule().getScheduledActivity((int) entity.world.getDayTime()).equals(Activity.WORK)&& FishermanEntity.checkBoat((FishermanEntity)entity)) {
+				if (((VillagerEntity) entity).getBrain().getSchedule().getScheduledActivity((int) entity.world.getDayTime()).equals(Activity.WORK) && FishermanEntity.checkBoat((FishermanEntity) entity)) {
 					//SITTING IDLE ON LEFT ARM
 					setRotationAngle(left_arm, (float) Math.toRadians(-22.5f), (float) Math.toRadians(-20), 0);
 					
@@ -138,12 +138,12 @@ public class TropicalFishermanModel extends EntityModel<Entity> {
 						int returnOffset = 36;
 						//LINEAR EASING ON PUTTING HAND DOWN
 						float restTime = Math.min(((entity.ticksExisted + partialTicks) % 200 / 5f), 1) - (Math.min(1, Math.max(0, (((entity.ticksExisted + partialTicks) - returnOffset) % 200 / 5f))));
-
+						
 						//CORRECT ON WAY UP
 						if (Math.min(1, Math.max(0, (((entity.ticksExisted + partialTicks) - returnOffset) % 200 / 5f))) == 1) {
 							restTime += 1;
 						}
-
+						
 						//ANIMATE HAND
 						setRotationAngle(right_arm, (float) Math.toRadians(MathHelper.lerp(restTime, -80, -40) + xOff), (float) Math.toRadians(3 + zOff), 0);
 					}
@@ -166,7 +166,7 @@ public class TropicalFishermanModel extends EntityModel<Entity> {
 		//SHAKE HEAD
 		if (((VillagerEntity) entity).getShakeHeadTicks() > 0) {
 			head.rotateAngleX = (float) Math.toRadians(22.5f);
-			head.rotateAngleY += Math.sin((((VillagerEntity) entity).getShakeHeadTicks()+(partialTicks/32f)) / 2f);
+			head.rotateAngleY += Math.sin((((VillagerEntity) entity).getShakeHeadTicks() + (partialTicks / 32f)) / 2f);
 		}
 	}
 	

@@ -6,8 +6,8 @@ public class LogGenerator {
 		String modName = name.split(":")[0].replace(":", "");
 		String blockName = name.split(":")[1].replace(":", "");
 		
-		String path = Generator.gameDir + "\\src\\main\\resources\\assets\\" + modName + "\\";
-		String path2 = Generator.gameDir + "\\src\\main\\resources\\data\\" + modName + "\\";
+		String path = DataGenerator.gameDir + "\\src\\main\\resources\\assets\\" + modName + "\\";
+		String path2 = DataGenerator.gameDir + "\\src\\main\\resources\\data\\" + modName + "\\";
 		File blockstate = new File(path + "blockstates\\" + blockName + ".json");
 		try {
 			if (!blockstate.exists()) {
@@ -52,23 +52,9 @@ public class LogGenerator {
 		}
 	}
 	
-	private final static String logBlockState = "" +
-			"{\n" +
-			"    \"variants\": {\n" +
-			"        \"axis=y\":    { \"model\": \"%modid%:block/%blockid%\" },\n" +
-			"        \"axis=z\":     { \"model\": \"%modid%:block/%blockid%\", \"x\": 90 },\n" +
-			"        \"axis=x\":     { \"model\": \"%modid%:block/%blockid%\", \"x\": 90, \"y\": 90 }\n" +
-			"    }\n" +
-			"}\n";
+	private final static String logBlockState = "{\n" + "    \"variants\": {\n" + "        \"axis=y\":    { \"model\": \"%modid%:block/%blockid%\" },\n" + "        \"axis=z\":     { \"model\": \"%modid%:block/%blockid%\", \"x\": 90 },\n" + "        \"axis=x\":     { \"model\": \"%modid%:block/%blockid%\", \"x\": 90, \"y\": 90 }\n" + "    }\n" + "}\n";
 	
-	private final static String normalBlockModel = "" +
-			"{\n" +
-			"    \"parent\": \"block/cube_column\",\n" +
-			"    \"textures\": {\n" +
-			"        \"end\": \"%modid%:block/%blockid%\",\n" +
-			"        \"side\": \"%modid%:block/%blockid%\"\n" +
-			"    }\n" +
-			"}\n";
+	private final static String normalBlockModel = "{\n" + "    \"parent\": \"block/cube_column\",\n" + "    \"textures\": {\n" + "        \"end\": \"%modid%:block/%blockid%_top\",\n" + "        \"side\": \"%modid%:block/%blockid%\"\n" + "    }\n" + "}\n";
 	
 	private final static String normalBlockItemModel = "{\n" + "    \"parent\": \"%modid%:block/%blockid%\"\n" + "}";
 	

@@ -1,7 +1,6 @@
 {
-    "parent": "block/cube_column",
+    "parent": "block/cube_all",
     "textures": {
-        "end": "new_lands:block/magnolia_planks",
-        "side": "new_lands:block/magnolia_planks"
+        "all": "new_lands:block/magnolia_planks"
     }
 }

@@ -6,7 +6,7 @@ public class LeavesGenerator {
 		String modName = name.split(":")[0].replace(":", "");
 		String blockName = name.split(":")[1].replace(":", "");
 		
-		String path = Generator.gameDir + "\\src\\main\\resources\\assets\\" + modName + "\\";
+		String path = DataGenerator.gameDir + "\\src\\main\\resources\\assets\\" + modName + "\\";
 		File blockstate = new File(path + "blockstates\\" + blockName + ".json");
 		try {
 			if (!blockstate.exists()) {
@@ -39,9 +39,9 @@ public class LeavesGenerator {
 		}
 	}
 	
-	private final static String leavesBlockState = "{\n" + "    \"variants\": {\n" + "        \"\": { \"model\": \"%modid%:block/%blockid%\" }\n" + "    }\n" + "}\n";
+	private static final String leavesBlockState = "{\n" + "    \"variants\": {\n" + "        \"\": { \"model\": \"%modid%:block/%blockid%\" }\n" + "    }\n" + "}\n";
 	
-	private final static String leavesBlockModel = "{\n" + "    \"parent\": \"block/leaves\",\n" + "    \"textures\": {\n" + "        \"all\": \"%modid%:block/%blockid%\"\n" + "    }\n" + "}\n";
+	private static final String leavesBlockModel = "{\n" + "    \"parent\": \"block/leaves\",\n" + "    \"textures\": {\n" + "        \"all\": \"%modid%:block/%blockid%\"\n" + "    }\n" + "}\n";
 	
-	private final static String leavesBlockItemModel = "{\n" + "    \"parent\": \"%modid%:block/%blockid%\"\n" + "}";
+	private static final String leavesBlockItemModel = "{\n" + "    \"parent\": \"%modid%:block/%blockid%\"\n" + "}";
 }

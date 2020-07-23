@@ -1,7 +1,7 @@
 {
     "variants": {
-        "axis=y":    { "model": "new_lands:block/cobble_dirt" },
-        "axis=z":     { "model": "new_lands:block/cobble_dirt", "x": 90 },
-        "axis=x":     { "model": "new_lands:block/cobble_dirt", "x": 90, "y": 90 }
+        "": [
+            { "model": "new_lands:block/cobble_dirt" }
+        ]
     }
 }
