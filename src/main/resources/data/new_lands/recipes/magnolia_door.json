@@ -7,10 +7,10 @@
     "##"
   ],
   "key": {
-    "#": {"item": "new_lands:tropical_palm_planks"}
+    "#": {"item": "new_lands:magnolia_planks"}
   },
   "result": {
-    "item": "new_lands:tropical_palm_door",
+    "item": "new_lands:magnolia_door",
     "count": 3
   }
 }

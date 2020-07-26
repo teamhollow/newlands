@@ -1,16 +1,16 @@
 {
   "type": "minecraft:crafting_shaped",
-  "group": "wooden_door",
+  "group": "wooden_stairs",
   "pattern": [
-    "##",
-    "##",
-    "##"
+    "#  ",
+    "## ",
+    "###"
   ],
   "key": {
     "#": {"item": "new_lands:tropical_palm_planks"}
   },
   "result": {
-    "item": "new_lands:tropical_palm_door",
-    "count": 3
+    "item": "new_lands:tropical_palm_stairs",
+    "count": 4
   }
 }

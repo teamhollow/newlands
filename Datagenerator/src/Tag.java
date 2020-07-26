@@ -26,7 +26,7 @@ public class Tag {
 	private final String path1 = DataGenerator.gameDir + "\\src\\main\\resources\\data\\%modid%";
 	
 	public void write(String filepath) {
-		File file = new File(path1.replace("%modid%","minecraft") + filepath);
+		File file = new File(path1.replace("%modid%", "minecraft") + filepath);
 		try {
 			if (!file.exists()) {
 				file.createNewFile();
@@ -39,7 +39,7 @@ public class Tag {
 	}
 	
 	public void write(String modID, String filepath) {
-		File file = new File(path1.replace("%modid%",modID) + filepath);
+		File file = new File(path1.replace("%modid%", modID) + filepath);
 		try {
 			if (!file.exists()) {
 				file.createNewFile();

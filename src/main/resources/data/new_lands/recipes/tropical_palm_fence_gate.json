@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "wooden_fence_gate",
+  "pattern": [
+    "#W#",
+    "#W#"
+  ],
+  "key": {
+    "#": {"item": "minecraft:stick"},
+    "W": {"item": "new_lands:tropical_palm_planks"}
+  },
+  "result": {
+    "item": "new_lands:tropical_palm_fence_gate",
+    "count": 1
+  }
+}

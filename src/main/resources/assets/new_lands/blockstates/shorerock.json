@@ -1,0 +1,7 @@
+{
+    "variants": {
+        "": [
+            { "model": "new_lands:block/shorerock" }
+        ]
+    }
+}

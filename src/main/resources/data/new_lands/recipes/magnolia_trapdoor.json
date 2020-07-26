@@ -6,10 +6,10 @@
     "###"
   ],
   "key": {
-    "#": {"item": "new_lands:tropical_palm_planks"}
+    "#": {"item": "new_lands:magnolia_planks"}
   },
   "result": {
-    "item": "new_lands:tropical_palm_trapdoor",
+    "item": "new_lands:magnolia_trapdoor",
     "count": 2
   }
 }

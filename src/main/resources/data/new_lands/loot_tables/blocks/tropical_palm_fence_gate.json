@@ -6,7 +6,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "new_lands:tropical_palm_fence_gate%"
+          "name": "new_lands:tropical_palm_fence_gate"
         }
       ],
       "conditions": [

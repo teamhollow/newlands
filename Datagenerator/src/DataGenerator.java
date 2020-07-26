@@ -59,37 +59,44 @@ public class DataGenerator {
 			"new_lands:tropical_palm_fence"
 	);
 	
+	public static List<String> stairs = Arrays.asList(
+			"new_lands:magnolia_stairs",
+			"new_lands:tropical_palm_stairs"
+	);
+	
 	public static List<String[]> translationBlocks = Arrays.asList(
-			new String[]{"new_lands:cobble_dirt", "Dirty Cobblestone" },
-			new String[]{"new_lands:sandy_cobblestone", "Sandy Cobblestone" },
-			new String[]{"new_lands:magnolia_leaves", "Magnolia Leaves" },
-			new String[]{"new_lands:magnolia_planks", "Magnolia Planks" },
-			new String[]{"new_lands:shorerock", "Shorerock" },
-			new String[]{"new_lands:tropical_palm_leaves", "Tropical Palm Leaves" },
-			new String[]{"new_lands:stripped_tropical_palm_log", "Stripped Tropical Palm Log" },
-			new String[]{"new_lands:tropical_palm_log", "Tropical Palm Log" },
-			new String[]{"new_lands:tropical_palm_planks", "Tropical Palm Planks" },
-			new String[]{"new_lands:tropical_palm_door", "Tropical Palm Door" },
-			new String[]{"new_lands:tropical_palm_fence", "Tropical Palm Fence" },
-			new String[]{"new_lands:tropical_palm_fence_gate", "Tropical Palm Fence Gate" },
-			new String[]{"new_lands:tropical_palm_trapdoor", "Tropical Palm Trapdoor" },
-			new String[]{"new_lands:tropical_palm_sapling", "Tropical Palm Sapling" },
-			new String[]{"new_lands:polished_shorerock", "Polished Shorerock" },
-			new String[]{"new_lands:polished_shorerock_bricks", "Polished Shorerock Bricks" },
-			new String[]{"new_lands:chiseled_polished_shorerock", "Chiseled Polished Shorerock" },
-			new String[]{"new_lands:stripped_magnolia_log", "Stripped Magnolia Log" },
-			new String[]{"new_lands:magnolia_log", "Magnolia Log" },
-			new String[]{"new_lands:flowering_magnolia_leaves", "Flowering Magnolia Leaves" },
-			new String[]{"new_lands:magnolia_trapdoor", "Magnolia Trapdoor" },
-			new String[]{"new_lands:magnolia_door", "Magnolia Door" },
-			new String[]{"new_lands:magnolia_fence", "Magnolia Fence" },
-			new String[]{"new_lands:magnolia_fence_gate", "Magnolia Fence Gate" },
-			new String[]{"new_lands:sand_layer", "Sand Layer" }
+			new String[]{"new_lands:cobble_dirt", "Dirty Cobblestone"},
+			new String[]{"new_lands:sandy_cobblestone", "Sandy Cobblestone"},
+			new String[]{"new_lands:magnolia_leaves", "Magnolia Leaves"},
+			new String[]{"new_lands:magnolia_planks", "Magnolia Planks"},
+			new String[]{"new_lands:shorerock", "Shorerock"},
+			new String[]{"new_lands:tropical_palm_leaves", "Tropical Palm Leaves"},
+			new String[]{"new_lands:stripped_tropical_palm_log", "Stripped Tropical Palm Log"},
+			new String[]{"new_lands:tropical_palm_log", "Tropical Palm Log"},
+			new String[]{"new_lands:tropical_palm_planks", "Tropical Palm Planks"},
+			new String[]{"new_lands:tropical_palm_door", "Tropical Palm Door"},
+			new String[]{"new_lands:tropical_palm_fence", "Tropical Palm Fence"},
+			new String[]{"new_lands:tropical_palm_stairs", "Tropical Palm Stairs"},
+			new String[]{"new_lands:tropical_palm_fence_gate", "Tropical Palm Fence Gate"},
+			new String[]{"new_lands:tropical_palm_trapdoor", "Tropical Palm Trapdoor"},
+			new String[]{"new_lands:tropical_palm_sapling", "Tropical Palm Sapling"},
+			new String[]{"new_lands:polished_shorerock", "Polished Shorerock"},
+			new String[]{"new_lands:polished_shorerock_bricks", "Polished Shorerock Bricks"},
+			new String[]{"new_lands:chiseled_polished_shorerock", "Chiseled Polished Shorerock"},
+			new String[]{"new_lands:stripped_magnolia_log", "Stripped Magnolia Log"},
+			new String[]{"new_lands:magnolia_log", "Magnolia Log"},
+			new String[]{"new_lands:magnolia_stairs", "Magnolia Stairs"},
+			new String[]{"new_lands:flowering_magnolia_leaves", "Flowering Magnolia Leaves"},
+			new String[]{"new_lands:magnolia_trapdoor", "Magnolia Trapdoor"},
+			new String[]{"new_lands:magnolia_door", "Magnolia Door"},
+			new String[]{"new_lands:magnolia_fence", "Magnolia Fence"},
+			new String[]{"new_lands:magnolia_fence_gate", "Magnolia Fence Gate"},
+			new String[]{"new_lands:sand_layer", "Sand Layer"}
 	);
 	
 	public static List<String[]> translationGroups = Arrays.asList(
-			new String[]{"new_lands:newlands_building", "New Lands Building Blocks" },
-			new String[]{"new_lands:newlands_worldgen", "New Lands World Generation" }
+			new String[]{"new_lands:newlands_building", "New Lands Building Blocks"},
+			new String[]{"new_lands:newlands_worldgen", "New Lands World Generation"}
 	);
 	
 	public static final String gameDir = System.getProperty("user.dir");
@@ -103,7 +110,7 @@ public class DataGenerator {
 		trapdoors.forEach((b) -> TrapdoorGenerator.generateBlock(b, true));
 		fences.forEach((b) -> {
 			FenceGenerator.generateBlock(b, true);
-			FenceGateGenerator.generateBlock(b+"_gate", true);
+			FenceGateGenerator.generateBlock(b + "_gate", true);
 		});
 		
 		Tag doorsTag = new Tag();
@@ -137,10 +144,10 @@ public class DataGenerator {
 		fencesTag.write("\\tags\\items\\wooden_fences.json");
 		
 		Tag fenceGatesTag = new Tag();
-		ArrayList<String> fenceGates=new ArrayList<>();
-		fences.forEach((f)->fenceGates.add(f+"_gate"));
+		ArrayList<String> fenceGates = new ArrayList<>();
+		fences.forEach((f) -> fenceGates.add(f + "_gate"));
 		fenceGatesTag.populate(fenceGates);
-		fenceGatesTag.write("forge","\\tags\\blocks\\fence_gates/wooden.json");
+		fenceGatesTag.write("forge", "\\tags\\blocks\\fence_gates/wooden.json");
 		
 		StringBuilder translation = new StringBuilder("{\n");
 		doTranslations(translationBlocks, translation, blockTranslationTemplate);
@@ -158,6 +165,17 @@ public class DataGenerator {
 			writer.close();
 		} catch (Throwable ignored) {
 		}
+		
+		doPlanks("magnolia");
+		doPlanks("tropical_palm");
+	}
+	
+	private static void doPlanks(String planks) {
+		RecipeGenerator.generate(new String[]{"##", "##", "##"}, new String[]{"\"#\": {\"item\": \"new_lands:" + planks + "_planks\"}"}, planks + "_door", "new_lands", "new_lands:" + planks + "_door", "wooden_door", 3);
+		RecipeGenerator.generate(new String[]{"###", "###"}, new String[]{"\"#\": {\"item\": \"new_lands:" + planks + "_planks\"}"}, planks + "_trapdoor", "new_lands", "new_lands:" + planks + "_trapdoor", "wooden_trapdoor", 2);
+		RecipeGenerator.generate(new String[]{"W#W", "W#W"}, new String[]{"\"#\": {\"item\": \"minecraft:stick\"}", "\"W\": {\"item\": \"new_lands:" + planks + "_planks\"}"}, planks + "_fence", "new_lands", "new_lands:" + planks + "_fence", "wooden_fence", 3);
+		RecipeGenerator.generate(new String[]{"#W#", "#W#"}, new String[]{"\"#\": {\"item\": \"minecraft:stick\"}", "\"W\": {\"item\": \"new_lands:" + planks + "_planks\"}"}, planks + "_fence_gate", "new_lands", "new_lands:" + planks + "_fence_gate", "wooden_fence_gate", 1);
+		RecipeGenerator.generate(new String[]{"#  ", "## ", "###"}, new String[]{"\"#\": {\"item\": \"new_lands:" + planks + "_planks\"}"}, planks + "_stairs", "new_lands", "new_lands:" + planks + "_stairs", "wooden_stairs", 4);
 	}
 	
 	public static void doTranslations(List<String[]> toAdd, StringBuilder translation, String template) {
