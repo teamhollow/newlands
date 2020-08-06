@@ -192,5 +192,5 @@ public class DataGenerator {
 	
 	private static final String blockTranslationTemplate = "  \"block.%modid%.%blockid%\": \"%blockname%\",\n";
 	
-	private static final String itemGroupTranslationTemplate = "  \"itemGroup.%modid%_%blockid%\": \"%blockname%\",\n";
+	private static final String itemGroupTranslationTemplate = "  \"itemGroup.%blockid%\": \"%blockname%\",\n";
 }
