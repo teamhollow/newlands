@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/door_top",
+  "textures": {
+    "top": "newlands:block/magnolia_door_top",
+    "bottom": "newlands:block/magnolia_door_bottom"
+  }
+}

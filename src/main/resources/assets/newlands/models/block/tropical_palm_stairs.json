@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/stairs",
+  "textures": {
+    "bottom": "newlands:block/tropical_palm_planks",
+    "top": "newlands:block/tropical_palm_planks",
+    "side": "newlands:block/tropical_palm_planks"
+  }
+}

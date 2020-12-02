@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "powered=false": {
+      "model": "newlands:block/tropical_palm_pressure_plate"
+    },
+    "powered=true": {
+      "model": "newlands:block/tropical_palm_pressure_plate_down"
+    }
+  }
+}

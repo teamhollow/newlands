@@ -1,0 +1,8 @@
+blank_issues_enabled: true
+contact_links:
+  - name: Wiki
+    url: https://newlands.teamhollow.net
+    about: A detailed summary of New Lands's features
+  - name: Features Roadmap (Trello)
+    url: https://trello.com/teamhollow
+    about: A list of features and plans for the future - check here if you're making a feature request!

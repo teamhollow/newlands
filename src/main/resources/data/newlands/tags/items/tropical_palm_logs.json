@@ -1,0 +1,9 @@
+{
+    "replace": false,
+    "values": [
+        "newlands:tropical_palm_log",
+        "newlands:tropical_palm_wood",
+        "newlands:stripped_tropical_palm_log",
+        "newlands:stripped_tropical_palm_wood"
+    ]
+}

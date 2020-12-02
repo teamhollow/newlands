@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/leaves",
+  "textures": {
+    "all": "newlands:block/magnolia_leaves"
+  }
+}

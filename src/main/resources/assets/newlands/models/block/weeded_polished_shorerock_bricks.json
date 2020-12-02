@@ -1,0 +1,6 @@
+{
+    "parent": "minecraft:block/cube_all",
+    "textures": {
+        "all": "newlands:block/weeded_polished_shorerock_bricks"
+    }
+}

@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "bark",
+  "pattern": [
+    "##",
+    "##"
+  ],
+  "key": {
+    "#": {
+      "item": "newlands:stripped_magnolia_log"
+    }
+  },
+  "result": {
+    "item": "newlands:stripped_magnolia_wood",
+    "count": 3
+  }
+}

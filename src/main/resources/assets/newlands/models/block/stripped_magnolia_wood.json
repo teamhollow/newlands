@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "end": "newlands:block/stripped_magnolia_log",
+    "side": "newlands:block/stripped_magnolia_log"
+  }
+}

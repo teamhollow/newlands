@@ -1,0 +1,40 @@
+{
+    "schemaVersion": 1,
+    "license": "MIT",
+    "id": "newlands",
+    "version": "${version}",
+
+    "name": "New Lands",
+    "description": "Description",
+    "icon": "pack.png",
+
+    "authors": [
+        "Team Hollow"
+    ],
+    "contributors": [],
+    "contact": {
+        "homepage": "https://newlands.teamhollow.net",
+        "sources": "https://github.com/teamhollow/newlands",
+        "issues": "https://github.com/teamhollow/newlands/issues"
+    },
+
+    "environment": "*",
+    "entrypoints": {
+        "main": [
+            "net.teamhollow.newlands.NewLands"
+        ],
+        "client": [
+            "net.teamhollow.newlands.NewLandsClient",
+            "net.teamhollow.newlands.client.network.BoatSpawnNetworkHandler::register"
+        ],
+        "server": []
+    },
+    "mixins": [
+        "newlands.mixins.json"
+    ],
+    "depends": {
+        "fabricloader": ">=0.10.0",
+        "fabric": ">=0.27.0",
+        "minecraft": ">=1.16.2"
+    }
+}

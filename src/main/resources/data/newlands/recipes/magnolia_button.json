@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "wooden_button",
+  "ingredients": [
+    {
+      "item": "newlands:magnolia_planks"
+    }
+  ],
+  "result": {
+    "item": "newlands:magnolia_button"
+  }
+}

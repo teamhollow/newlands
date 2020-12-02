@@ -1,0 +1,9 @@
+{
+    "replace": false,
+    "values": [
+        "newlands:magnolia_log",
+        "newlands:magnolia_wood",
+        "newlands:stripped_magnolia_log",
+        "newlands:stripped_magnolia_wood"
+    ]
+}

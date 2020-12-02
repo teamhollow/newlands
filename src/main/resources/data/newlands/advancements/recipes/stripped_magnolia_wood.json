@@ -1,0 +1,32 @@
+{
+  "parent": "newlands:recipes/root",
+  "rewards": {
+    "recipes": [
+      "newlands:stripped_magnolia_wood"
+    ]
+  },
+  "criteria": {
+    "has_log": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "newlands:stripped_magnolia_log"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "newlands:stripped_magnolia_wood"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_log",
+      "has_the_recipe"
+    ]
+  ]
+}
