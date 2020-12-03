@@ -18,6 +18,8 @@ import net.teamhollow.newlands.NewLands;
 public class NLConfiguredFeatures {
     public static final ConfiguredFeature<TreeFeatureConfig, ?> TROPICAL_PALM_TREE = register("tropical_palm_tree", Feature.TREE.configure((new TreeFeatureConfig.Builder(new SimpleBlockStateProvider(States.TROPICAL_PALM_LOG), new SimpleBlockStateProvider(States.TROPICAL_PALM_LEAVES), new AcaciaFoliagePlacer(UniformIntDistribution.of(2), UniformIntDistribution.of(0)), new ForkingTrunkPlacer(6, 2, 2), new TwoLayersFeatureSize(1, 0, 2))).ignoreVines().build()));
 
+    public static final ConfiguredFeature<?, ?> SAND_LAYER = register("sand_layer", NLFeatures.SAND_LAYER.configure(FeatureConfig.DEFAULT));
+
     public NLConfiguredFeatures() {}
 
     private static <FC extends FeatureConfig> ConfiguredFeature<FC, ?> register(String id, ConfiguredFeature<FC, ?> configuredFeature) {
