@@ -28,7 +28,9 @@ public class NewLandsClient implements ClientModInitializer {
         log("Initializing");
 
         // render layers
-        BlockRenderLayerMap.INSTANCE.putBlocks(RenderLayer.getCutout(), NLBlocks.TROPICAL_PALM.DOOR, NLBlocks.TROPICAL_PALM.TRAPDOOR, NLBlocks.MAGNOLIA.DOOR, NLBlocks.MAGNOLIA.TRAPDOOR, NLBlocks.TROPICAL_PALM.SAPLING, NLBlocks.MAGNOLIA.SAPLING);
+        BlockRenderLayerMap brlmInstance = BlockRenderLayerMap.INSTANCE;
+        brlmInstance.putBlocks(RenderLayer.getCutout(), NLBlocks.TROPICAL_PALM.DOOR, NLBlocks.TROPICAL_PALM.TRAPDOOR, NLBlocks.MAGNOLIA.DOOR, NLBlocks.MAGNOLIA.TRAPDOOR, NLBlocks.TROPICAL_PALM.SAPLING, NLBlocks.MAGNOLIA.SAPLING);
+        brlmInstance.putBlocks(RenderLayer.getCutoutMipped(), NLBlocks.TROPICAL_PALM.LEAVES, NLBlocks.MAGNOLIA.LEAVES, NLBlocks.FLOWERING_MAGNOLIA_LEAVES);
 
         // color providers
         ColorProviderRegistry.BLOCK.register((state, world, pos, tintIndex) -> {
