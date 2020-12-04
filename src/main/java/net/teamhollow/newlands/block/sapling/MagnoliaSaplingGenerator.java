@@ -7,8 +7,8 @@ import net.minecraft.world.gen.feature.ConfiguredFeature;
 import net.minecraft.world.gen.feature.TreeFeatureConfig;
 import net.teamhollow.newlands.init.NLConfiguredFeatures;
 
-public class TropicalPalmSaplingGenerator extends SaplingGenerator {
+public class MagnoliaSaplingGenerator extends SaplingGenerator {
     protected ConfiguredFeature<TreeFeatureConfig, ?> createTreeFeature(Random random, boolean bl) {
-        return NLConfiguredFeatures.TREE_TROPICAL_PALM;
+        return NLConfiguredFeatures.TREE_MAGNOLIA;
     }
 }

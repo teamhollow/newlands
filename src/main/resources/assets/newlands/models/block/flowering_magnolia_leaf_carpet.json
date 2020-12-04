@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/carpet",
+  "textures": {
+    "wool": "newlands:block/flowering_magnolia_leaves"
+  }
+}

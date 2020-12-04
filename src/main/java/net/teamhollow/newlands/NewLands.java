@@ -40,6 +40,8 @@ public class NewLands implements ModInitializer {
 
         new NLFeatures();
         new NLConfiguredFeatures();
+
+        new NLBiomes();
         addBiomeModifications();
 
         log("Initialized");

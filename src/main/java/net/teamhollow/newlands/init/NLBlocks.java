@@ -17,7 +17,7 @@ import net.minecraft.util.registry.Registry;
 import net.teamhollow.newlands.NewLands;
 import net.teamhollow.newlands.block.*;
 import net.teamhollow.newlands.block.helper.WoodBlocks;
-import net.teamhollow.newlands.block.sapling.TropicalPalmSaplingGenerator;
+import net.teamhollow.newlands.block.sapling.*;
 
 public class NLBlocks {
     //
@@ -26,8 +26,9 @@ public class NLBlocks {
 
     public static final WoodBlocks TROPICAL_PALM = new WoodBlocks.Builder().saplingGenerator(new TropicalPalmSaplingGenerator()).boatType(BoatEntity.Type.BIRCH).build("tropical_palm");
 
-    public static final WoodBlocks MAGNOLIA = new WoodBlocks.Builder().boatType(BoatEntity.Type.ACACIA).build("magnolia");
+    public static final WoodBlocks MAGNOLIA = new WoodBlocks.Builder().saplingGenerator(new MagnoliaSaplingGenerator()).boatType(BoatEntity.Type.ACACIA).build("magnolia");
     public static final Block FLOWERING_MAGNOLIA_LEAVES = register("flowering_magnolia_leaves", new LeavesBlock(FabricBlockSettings.copy(MAGNOLIA.LEAVES)));
+    public static final Block FLOWERING_MAGNOLIA_LEAF_CARPET = register("flowering_magnolia_leaf_carpet", new LeafCarpetBlock(FabricBlockSettings.copy(MAGNOLIA.LEAVES).breakInstantly()));
 
     //
     // SHOREROCK

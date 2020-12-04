@@ -1,0 +1,32 @@
+{
+  "parent": "newlands:recipes/root",
+  "rewards": {
+    "recipes": [
+      "newlands:flowering_magnolia_leaf_carpet"
+    ]
+  },
+  "criteria": {
+    "has_leaves": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "newlands:flowering_magnolia_leaves"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "newlands:flowering_magnolia_leaf_carpet"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_leaves",
+      "has_the_recipe"
+    ]
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "##"
+  ],
+  "key": {
+    "#": {
+      "item": "newlands:flowering_magnolia_leaves"
+    }
+  },
+  "result": {
+    "item": "newlands:flowering_magnolia_leaf_carpet",
+    "count": 2
+  }
+}

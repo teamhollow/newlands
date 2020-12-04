@@ -27,6 +27,7 @@
     "block.newlands.magnolia_wood": "Magnolia Wood",
     "block.newlands.magnolia_leaves": "Magnolia Leaves",
     "block.newlands.flowering_magnolia_leaves": "Flowering Magnolia Leaves",
+    "block.newlands.flowering_magnolia_leaf_carpet": "Flowering Magnolia Leaf Carpet",
     "block.newlands.magnolia_slab": "Magnolia Slab",
     "block.newlands.magnolia_pressure_plate": "Magnolia Pressure Plate",
     "block.newlands.magnolia_fence": "Magnolia Fence",
@@ -49,5 +50,7 @@
     "item.newlands.magnolia_boat": "Magnolia Boat",
 
     "entity.newlands.tropical_palm_boat": "Tropical Palm Boat",
-    "entity.newlands.magnolia_boat": "Magnolia Boat"
+    "entity.newlands.magnolia_boat": "Magnolia Boat",
+
+    "biome.newlands.magnolia_forest": "Magnolia Forest"
 }
