@@ -9,9 +9,11 @@ import net.minecraft.entity.ai.goal.EscapeDangerGoal;
 import net.minecraft.entity.ai.goal.FollowParentGoal;
 import net.minecraft.entity.ai.goal.LookAroundGoal;
 import net.minecraft.entity.ai.goal.LookAtEntityGoal;
-import net.minecraft.entity.ai.goal.SwimGoal;
 import net.minecraft.entity.ai.goal.TemptGoal;
 import net.minecraft.entity.ai.goal.WanderAroundFarGoal;
+import net.minecraft.entity.ai.pathing.MobNavigation;
+import net.minecraft.entity.ai.pathing.PathNodeType;
+import net.minecraft.entity.ai.pathing.SwimNavigation;
 import net.minecraft.entity.attribute.DefaultAttributeContainer;
 import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.damage.DamageSource;
@@ -37,15 +39,17 @@ import net.teamhollow.newlands.init.NLSoundEvents;
 public class HermitCrabEntity extends AnimalEntity {
     public static final String id = "hermit_crab";
 
+    protected final SwimNavigation waterNavigation = new SwimNavigation(this, world);
+    protected final MobNavigation landNavigation = new MobNavigation(this, world);
     private static final Ingredient BREEDING_INGREDIENT = Ingredient.ofItems(Items.KELP, Items.SEAGRASS);
 
     public HermitCrabEntity(EntityType<? extends AnimalEntity> entityType, World world) {
         super(entityType, world);
+        this.setPathfindingPenalty(PathNodeType.WATER, 0.0F);
     }
 
     @Override
     protected void initGoals() {
-        this.goalSelector.add(0, new SwimGoal(this));
         this.goalSelector.add(1, new EscapeDangerGoal(this, 1.25D));
         this.goalSelector.add(3, new AnimalMateGoal(this, 1.0D));
         this.goalSelector.add(4, new TemptGoal(this, 1.2D, false, BREEDING_INGREDIENT));
@@ -53,6 +57,19 @@ public class HermitCrabEntity extends AnimalEntity {
         this.goalSelector.add(6, new WanderAroundFarGoal(this, 1.0D));
         this.goalSelector.add(7, new LookAtEntityGoal(this, PlayerEntity.class, 6.0F));
         this.goalSelector.add(8, new LookAroundGoal(this));
+    }
+
+    @Override
+    public void updateSwimming() {
+        if (!this.world.isClient) {
+            if (this.canMoveVoluntarily() && this.isTouchingWater()) {
+                this.navigation = this.waterNavigation;
+                this.setSwimming(true);
+            } else {
+                this.navigation = this.landNavigation;
+                this.setSwimming(false);
+            }
+        }
     }
 
     public static DefaultAttributeContainer.Builder createHermitCrabAttributes() {
