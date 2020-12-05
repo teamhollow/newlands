@@ -29,7 +29,7 @@ public class NLBlocks {
 
     public static final WoodBlocks MAGNOLIA = new WoodBlocks.Builder().saplingGenerator(new MagnoliaSaplingGenerator()).boatType(BoatEntity.Type.ACACIA).build("magnolia");
     public static final Block FLOWERING_MAGNOLIA_LEAVES = register("flowering_magnolia_leaves", new LeavesBlock(FabricBlockSettings.copy(MAGNOLIA.LEAVES)));
-    public static final Block FLOWERING_MAGNOLIA_LEAF_CARPET = register("flowering_magnolia_leaf_carpet", new LeafCarpetBlock(FabricBlockSettings.of(Material.REPLACEABLE_PLANT).breakInstantly().sounds(BlockSoundGroup.GRASS).nonOpaque()));
+    public static final Block FLOWERING_MAGNOLIA_LEAF_CARPET = register("flowering_magnolia_leaf_carpet", new LeafCarpetBlock(FabricBlockSettings.of(Material.REPLACEABLE_PLANT).breakInstantly().sounds(BlockSoundGroup.GRASS).nonOpaque().noCollision()));
     public static final Block MAGNOLIA_VINE = register("magnolia_vine", new VineBlock(FabricBlockSettings.copy(Blocks.VINE).breakInstantly()));
 
     //
