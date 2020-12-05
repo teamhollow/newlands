@@ -3,10 +3,15 @@
     "package": "net.teamhollow.newlands.mixin",
     "compatibilityLevel": "JAVA_8",
     "mixins": [
-        "BlockEntityTypeMixin"
+        "BlockEntityTypeMixin",
+
+        "FoliagePlacerTypeMixin",
+        "TreeDecoratorTypeMixin",
+        "TrunkPlacerTypeMixin"
     ],
     "client": [
         "client.BoatEntityRendererMixin",
+
         "client.SignBlockEntityRendererMixin",
         "client.TexturedRenderLayersMixin"
     ],

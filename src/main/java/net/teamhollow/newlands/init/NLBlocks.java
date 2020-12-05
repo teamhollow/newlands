@@ -8,6 +8,7 @@ import net.minecraft.block.ComposterBlock;
 import net.minecraft.block.LeavesBlock;
 import net.minecraft.block.Material;
 import net.minecraft.block.MaterialColor;
+import net.minecraft.block.VineBlock;
 import net.minecraft.entity.vehicle.BoatEntity;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
@@ -29,6 +30,7 @@ public class NLBlocks {
     public static final WoodBlocks MAGNOLIA = new WoodBlocks.Builder().saplingGenerator(new MagnoliaSaplingGenerator()).boatType(BoatEntity.Type.ACACIA).build("magnolia");
     public static final Block FLOWERING_MAGNOLIA_LEAVES = register("flowering_magnolia_leaves", new LeavesBlock(FabricBlockSettings.copy(MAGNOLIA.LEAVES)));
     public static final Block FLOWERING_MAGNOLIA_LEAF_CARPET = register("flowering_magnolia_leaf_carpet", new LeafCarpetBlock(FabricBlockSettings.copy(MAGNOLIA.LEAVES).breakInstantly()));
+    public static final Block MAGNOLIA_VINE = register("magnolia_vine", new VineBlock(FabricBlockSettings.copy(Blocks.VINE).breakInstantly()));
 
     //
     // SHOREROCK

@@ -41,6 +41,10 @@ public class NewLands implements ModInitializer {
         new NLItems();
         new NLEntities();
 
+        new NLFoliagePlacers();
+        new NLTreeDecorators();
+        new NLTrunkPlacers();
+
         new NLFeatures();
         new NLConfiguredFeatures();
 
@@ -52,6 +56,7 @@ public class NewLands implements ModInitializer {
 
     private static void addBiomeModifications() {
         BiomeModifications.addFeature(BiomeSelectors.categories(Biome.Category.RIVER, Biome.Category.OCEAN), GenerationStep.Feature.VEGETAL_DECORATION, RegistryKey.of(Registry.CONFIGURED_FEATURE_WORLDGEN, BuiltinRegistries.CONFIGURED_FEATURE.getId(NLConfiguredFeatures.SAND_LAYER)));
+        BiomeModifications.addFeature(BiomeSelectors.categories(Biome.Category.BEACH), GenerationStep.Feature.VEGETAL_DECORATION, RegistryKey.of(Registry.CONFIGURED_FEATURE_WORLDGEN, BuiltinRegistries.CONFIGURED_FEATURE.getId(NLConfiguredFeatures.TREE_TROPICAL_PALM_BEACH)));
     }
 
     public static void log(Level level, String message){
