@@ -48,9 +48,17 @@
 
     "item.newlands.tropical_palm_boat": "Tropical Palm Boat",
     "item.newlands.magnolia_boat": "Magnolia Boat",
+    "item.newlands.hermit_crab_spawn_egg": "Hermit Crab Spawn Egg",
+    "item.newlands.hermit_crab_bucket": "Hermit Crab Bucket",
 
     "entity.newlands.tropical_palm_boat": "Tropical Palm Boat",
     "entity.newlands.magnolia_boat": "Magnolia Boat",
+    "entity.newlands.hermit_crab": "Hermit Crab",
 
-    "biome.newlands.magnolia_forest": "Magnolia Forest"
+    "biome.newlands.magnolia_forest": "Magnolia Forest",
+
+    "subtitles.newlands.entity.hermit_crab.ambient": "Hermit Crab grovels",
+    "subtitles.newlands.entity.hermit_crab.death": "Hermit Crab dies",
+    "subtitles.newlands.entity.hermit_crab.hurt": "Hermit Crab hurts",
+    "subtitles.newlands.entity.hermit_crab.step": "Hermit Crab walks"
 }

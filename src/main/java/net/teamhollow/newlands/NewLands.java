@@ -35,8 +35,11 @@ public class NewLands implements ModInitializer {
     public void onInitialize() {
         log("Initializing");
 
+        new NLSoundEvents();
+
         new NLBlocks();
         new NLItems();
+        new NLEntities();
 
         new NLFeatures();
         new NLConfiguredFeatures();

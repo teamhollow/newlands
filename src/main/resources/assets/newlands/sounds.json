@@ -1,0 +1,18 @@
+{
+    "entity.hermit_crab.ambient": {
+        "sounds": [],
+        "subtitle": "subtitles.newlands.entity.hermit_crab.ambient"
+    },
+    "entity.hermit_crab.death": {
+        "sounds": [],
+        "subtitle": "subtitles.newlands.entity.hermit_crab.death"
+    },
+    "entity.hermit_crab.hurt": {
+        "sounds": [],
+        "subtitle": "subtitles.newlands.entity.hermit_crab.hurt"
+    },
+    "entity.hermit_crab.step": {
+        "sounds": [],
+        "subtitle": "subtitles.block.generic.footsteps"
+    }
+}

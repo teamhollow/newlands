@@ -19,13 +19,15 @@ import net.minecraft.entity.EntityType;
 import net.minecraft.util.Util;
 import net.minecraft.util.registry.Registry;
 import net.teamhollow.newlands.block.helper.WoodBlocks;
+import net.teamhollow.newlands.entity.hermit_crab.HermitCrabEntityRenderer;
 import net.teamhollow.newlands.init.NLBlocks;
+import net.teamhollow.newlands.init.NLEntities;
 import net.teamhollow.newlands.registry.SpriteIdentifierRegistry;
 
 public class NewLandsClient implements ClientModInitializer {
     @Override
     public void onInitializeClient() {
-        log("Initializing");
+        log("Initializing client");
 
         // render layers
         BlockRenderLayerMap brlmInstance = BlockRenderLayerMap.INSTANCE;
@@ -44,7 +46,10 @@ public class NewLandsClient implements ClientModInitializer {
         registerSignRenderers(NLBlocks.TROPICAL_PALM, NLBlocks.MAGNOLIA);
         registerBoatRenderers(NLBlocks.TROPICAL_PALM.BOAT_ENTITY, NLBlocks.MAGNOLIA.BOAT_ENTITY);
 
-        log("Initialized");
+        EntityRendererRegistry INSTANCE = EntityRendererRegistry.INSTANCE;
+        INSTANCE.register(NLEntities.HERMIT_CRAB, (entityRenderDispatcher, context) -> new HermitCrabEntityRenderer(entityRenderDispatcher));
+
+        log("Initialized client");
     }
 
     private void registerSignRenderers(WoodBlocks... woodBlocks) {
