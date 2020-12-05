@@ -1,4 +1,4 @@
-package net.teamhollow.newlands.entity;
+package net.teamhollow.newlands.entity.boat;
 
 import io.netty.buffer.Unpooled;
 

@@ -19,7 +19,7 @@ import net.minecraft.util.math.Box;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.RaycastContext;
 import net.minecraft.world.World;
-import net.teamhollow.newlands.entity.NLBoatEntity;
+import net.teamhollow.newlands.entity.boat.NLBoatEntity;
 
 public class NLBoatItem extends Item {
     private static final Predicate<Entity> RIDERS = EntityPredicates.EXCEPT_SPECTATOR.and(Entity::collides);

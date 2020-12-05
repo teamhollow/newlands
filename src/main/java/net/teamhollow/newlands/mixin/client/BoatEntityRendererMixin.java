@@ -8,7 +8,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 import net.minecraft.client.render.entity.BoatEntityRenderer;
 import net.minecraft.entity.vehicle.BoatEntity;
 import net.minecraft.util.Identifier;
-import net.teamhollow.newlands.entity.NLBoatEntity;
+import net.teamhollow.newlands.entity.boat.NLBoatEntity;
 
 @Mixin(BoatEntityRenderer.class)
 public class BoatEntityRendererMixin {

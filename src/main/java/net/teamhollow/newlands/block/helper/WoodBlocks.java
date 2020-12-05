@@ -41,8 +41,7 @@ import net.minecraft.util.registry.Registry;
 import net.teamhollow.newlands.NewLands;
 import net.teamhollow.newlands.block.*;
 import net.teamhollow.newlands.block.vanilla.*;
-import net.teamhollow.newlands.entity.NLBoatEntity;
-import net.teamhollow.newlands.entity.NLBoatInfo;
+import net.teamhollow.newlands.entity.boat.*;
 import net.teamhollow.newlands.item.NLBoatItem;
 
 public class WoodBlocks {

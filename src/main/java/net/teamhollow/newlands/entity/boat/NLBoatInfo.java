@@ -1,4 +1,4 @@
-package net.teamhollow.newlands.entity;
+package net.teamhollow.newlands.entity.boat;
 
 import net.minecraft.entity.vehicle.BoatEntity;
 import net.minecraft.item.Item;
