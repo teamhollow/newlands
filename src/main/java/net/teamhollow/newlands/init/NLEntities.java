@@ -20,7 +20,7 @@ public class NLEntities {
         HermitCrabEntity.id,
         FabricEntityTypeBuilder.create(SpawnGroup.CREATURE, HermitCrabEntity::new)
             .dimensions(EntityDimensions.fixed(0.4F, 0.4F)),
-        new int[]{ 0, 0 }
+        new int[]{ 15690005, 3552306 }
     );
 
     public NLEntities() {
