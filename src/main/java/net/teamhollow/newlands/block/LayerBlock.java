@@ -130,7 +130,9 @@ public class LayerBlock extends Block implements Waterloggable {
             return blockState.with(LAYERS, Math.min(8, i + 1))
                              .with(WATERLOGGED, ctx.getWorld().getFluidState(ctx.getBlockPos()).getFluid() == Fluids.WATER);
         } else {
-            return super.getPlacementState(ctx);
+            FluidState fluidState = ctx.getWorld().getFluidState(ctx.getBlockPos());
+            boolean bl = fluidState.getFluid() == Fluids.WATER;
+            return (BlockState) super.getPlacementState(ctx).with(WATERLOGGED, bl);
         }
     }
 
