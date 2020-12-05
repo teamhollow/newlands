@@ -4,7 +4,6 @@ import net.fabricmc.fabric.api.biome.v1.OverworldBiomes;
 import net.fabricmc.fabric.api.biome.v1.OverworldClimate;
 import net.minecraft.sound.BiomeMoodSound;
 import net.minecraft.util.Identifier;
-import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.registry.BuiltinRegistries;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.util.registry.RegistryKey;
@@ -44,6 +43,7 @@ public class NLBiomes {
         DefaultBiomeFeatures.addDefaultDisks(generationSettings);
         generationSettings.feature(GenerationStep.Feature.VEGETAL_DECORATION, NLConfiguredFeatures.TREE_MAGNOLIA_FOREST);
         generationSettings.feature(GenerationStep.Feature.VEGETAL_DECORATION, NLConfiguredFeatures.PATCH_MAGNOLIA_LEAVES);
+        generationSettings.feature(GenerationStep.Feature.VEGETAL_DECORATION, NLConfiguredFeatures.WHITE_ALLIUM);
         DefaultBiomeFeatures.addDefaultFlowers(generationSettings);
         DefaultBiomeFeatures.addForestGrass(generationSettings);
 
@@ -52,13 +52,7 @@ public class NLBiomes {
         DefaultBiomeFeatures.addSprings(generationSettings);
         DefaultBiomeFeatures.addFrozenTopLayer(generationSettings);
 
-        return new Biome.Builder().precipitation(Biome.Precipitation.RAIN).category(Biome.Category.FOREST).depth(0.1F).scale(0.4F).temperature(0.7F).downfall(0.8F).effects(new BiomeEffects.Builder().waterColor(4159204).waterFogColor(329011).fogColor(12638463).skyColor(getSkyColor(0.7F)).moodSound(BiomeMoodSound.CAVE).build()).spawnSettings(spawnSettings.build()).generationSettings(generationSettings.build()).build();
-    }
-
-    private static int getSkyColor(float temperature) {
-        float f = temperature / 3.0F;
-        f = MathHelper.clamp(f, -1.0F, 1.0F);
-        return MathHelper.hsvToRgb(0.62222224F - f * 0.05F, 0.5F + f * 0.1F, 1.0F);
+        return new Biome.Builder().precipitation(Biome.Precipitation.RAIN).category(Biome.Category.FOREST).depth(0.1F).scale(0.4F).temperature(0.65F).downfall(0.9F).effects(new BiomeEffects.Builder().waterColor(0xabffed).waterFogColor(0x8fffe7).fogColor(0xc4ffcd).skyColor(0xe6ffe9).moodSound(BiomeMoodSound.CAVE).build()).spawnSettings(spawnSettings.build()).generationSettings(generationSettings.build()).build();
     }
 
     private static RegistryKey<Biome> register(String id, Biome biome) {

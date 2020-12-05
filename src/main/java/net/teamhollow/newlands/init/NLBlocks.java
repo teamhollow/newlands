@@ -5,10 +5,11 @@ import net.fabricmc.fabric.api.tool.attribute.v1.FabricToolTags;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.ComposterBlock;
-import net.minecraft.block.LeavesBlock;
+import net.minecraft.block.FlowerBlock;
 import net.minecraft.block.Material;
 import net.minecraft.block.MaterialColor;
 import net.minecraft.block.VineBlock;
+import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.entity.vehicle.BoatEntity;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
@@ -28,7 +29,7 @@ public class NLBlocks {
     public static final WoodBlocks TROPICAL_PALM = new WoodBlocks.Builder().saplingGenerator(new TropicalPalmSaplingGenerator()).boatType(BoatEntity.Type.BIRCH).build("tropical_palm");
 
     public static final WoodBlocks MAGNOLIA = new WoodBlocks.Builder().saplingGenerator(new MagnoliaSaplingGenerator()).boatType(BoatEntity.Type.ACACIA).build("magnolia");
-    public static final Block FLOWERING_MAGNOLIA_LEAVES = register("flowering_magnolia_leaves", new LeavesBlock(FabricBlockSettings.copy(MAGNOLIA.LEAVES)));
+    public static final Block FLOWERING_MAGNOLIA_LEAVES = register("flowering_magnolia_leaves", new FloweringMagnoliaLeavesBlock(FabricBlockSettings.copy(MAGNOLIA.LEAVES)));
     public static final Block FLOWERING_MAGNOLIA_LEAF_CARPET = register("flowering_magnolia_leaf_carpet", new LeafCarpetBlock(FabricBlockSettings.of(Material.REPLACEABLE_PLANT).breakInstantly().sounds(BlockSoundGroup.GRASS).nonOpaque().noCollision()));
     public static final Block MAGNOLIA_VINE = register("magnolia_vine", new VineBlock(FabricBlockSettings.copy(Blocks.VINE).breakInstantly()));
 
@@ -54,6 +55,7 @@ public class NLBlocks {
     //
 
     public static final Block SAND_LAYER = register("sand_layer", new LayerBlock(FabricBlockSettings.of(Material.AGGREGATE, MaterialColor.SAND).strength(0.1F, 0.1F).sounds(BlockSoundGroup.SAND).breakByTool(FabricToolTags.SHOVELS)));
+    public static final Block WHITE_ALLIUM = register("white_allium", new FlowerBlock(StatusEffects.SLOW_FALLING, 4, FabricBlockSettings.of(Material.PLANT).noCollision().breakInstantly().sounds(BlockSoundGroup.GRASS)));
 
     public NLBlocks() {
         ComposterBlock.ITEM_TO_LEVEL_INCREASE_CHANCE.put(FLOWERING_MAGNOLIA_LEAVES.asItem(), 0.3F);

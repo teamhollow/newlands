@@ -66,7 +66,7 @@ public class LeaveMagnoliaVineTreeDecorator extends TreeDecorator {
 
     private void placeVines(ModifiableTestableWorld world, BlockPos pos, BooleanProperty side, Set<BlockPos> placedStates, BlockBox box) {
         this.placeVine(world, pos, side, placedStates, box);
-        int i = 2;
+        int i = 8;
 
         for (pos = pos.down(); Feature.isAir(world, pos) && i > 0; i--) {
             this.placeVine(world, pos, side, placedStates, box);

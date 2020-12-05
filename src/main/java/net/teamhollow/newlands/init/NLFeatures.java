@@ -11,7 +11,7 @@ import net.teamhollow.newlands.world.gen.feature.*;
 
 public class NLFeatures {
     public static final Feature<DefaultFeatureConfig> SAND_LAYER = register("sand_layer", new SandLayerFeature(DefaultFeatureConfig.CODEC));
-    public static final FloweringMagnoliaTreeFeature TREE_FLOWERING_MAGNOLIA = register("tree_flowering_magnolia", new FloweringMagnoliaTreeFeature(TreeFeatureConfig.CODEC));
+    public static final FloweringMagnoliaTreeFeature TREE_FLOWERING_MAGNOLIA_VINES = register("tree_flowering_magnolia_vines", new FloweringMagnoliaTreeFeature(TreeFeatureConfig.CODEC));
 
     public NLFeatures() {}
 

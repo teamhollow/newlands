@@ -4,6 +4,7 @@ import static net.teamhollow.newlands.NewLands.log;
 
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
+import net.fabricmc.fabric.api.client.particle.v1.ParticleFactoryRegistry;
 import net.fabricmc.fabric.api.client.rendereregistry.v1.EntityRendererRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.ColorProviderRegistry;
 import net.minecraft.block.entity.BlockEntityType;
@@ -19,9 +20,11 @@ import net.minecraft.entity.EntityType;
 import net.minecraft.util.Util;
 import net.minecraft.util.registry.Registry;
 import net.teamhollow.newlands.block.helper.WoodBlocks;
+import net.teamhollow.newlands.client.particle.WhiteAlliumParticle;
 import net.teamhollow.newlands.entity.hermit_crab.HermitCrabEntityRenderer;
 import net.teamhollow.newlands.init.NLBlocks;
 import net.teamhollow.newlands.init.NLEntities;
+import net.teamhollow.newlands.init.NLParticles;
 import net.teamhollow.newlands.registry.SpriteIdentifierRegistry;
 
 public class NewLandsClient implements ClientModInitializer {
@@ -32,7 +35,7 @@ public class NewLandsClient implements ClientModInitializer {
         // render layers
         BlockRenderLayerMap brlmInstance = BlockRenderLayerMap.INSTANCE;
         brlmInstance.putBlocks(RenderLayer.getCutout(), NLBlocks.TROPICAL_PALM.DOOR, NLBlocks.TROPICAL_PALM.TRAPDOOR, NLBlocks.MAGNOLIA.DOOR, NLBlocks.MAGNOLIA.TRAPDOOR, NLBlocks.MAGNOLIA_VINE, NLBlocks.TROPICAL_PALM.SAPLING, NLBlocks.MAGNOLIA.SAPLING);
-        brlmInstance.putBlocks(RenderLayer.getCutoutMipped(), NLBlocks.TROPICAL_PALM.LEAVES, NLBlocks.MAGNOLIA.LEAVES, NLBlocks.FLOWERING_MAGNOLIA_LEAVES, NLBlocks.FLOWERING_MAGNOLIA_LEAF_CARPET);
+        brlmInstance.putBlocks(RenderLayer.getCutoutMipped(), NLBlocks.TROPICAL_PALM.LEAVES, NLBlocks.MAGNOLIA.LEAVES, NLBlocks.FLOWERING_MAGNOLIA_LEAVES, NLBlocks.FLOWERING_MAGNOLIA_LEAF_CARPET, NLBlocks.WHITE_ALLIUM);
 
         // color providers
         ColorProviderRegistry.BLOCK.register((state, world, pos, tintIndex) -> {
@@ -48,6 +51,10 @@ public class NewLandsClient implements ClientModInitializer {
 
         EntityRendererRegistry INSTANCE = EntityRendererRegistry.INSTANCE;
         INSTANCE.register(NLEntities.HERMIT_CRAB, (entityRenderDispatcher, context) -> new HermitCrabEntityRenderer(entityRenderDispatcher));
+
+        // particles
+        ParticleFactoryRegistry pfrInstance = ParticleFactoryRegistry.getInstance();
+        pfrInstance.register(NLParticles.WHITE_ALLIUM, WhiteAlliumParticle.Factory::new);
 
         log("Initialized client");
     }
