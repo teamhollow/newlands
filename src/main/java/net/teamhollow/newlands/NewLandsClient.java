@@ -34,8 +34,8 @@ public class NewLandsClient implements ClientModInitializer {
 
         // render layers
         BlockRenderLayerMap brlmInstance = BlockRenderLayerMap.INSTANCE;
-        brlmInstance.putBlocks(RenderLayer.getCutout(), NLBlocks.TROPICAL_PALM.DOOR, NLBlocks.TROPICAL_PALM.TRAPDOOR, NLBlocks.MAGNOLIA.DOOR, NLBlocks.MAGNOLIA.TRAPDOOR, NLBlocks.MAGNOLIA_VINE, NLBlocks.TROPICAL_PALM.SAPLING, NLBlocks.MAGNOLIA.SAPLING);
-        brlmInstance.putBlocks(RenderLayer.getCutoutMipped(), NLBlocks.TROPICAL_PALM.LEAVES, NLBlocks.MAGNOLIA.LEAVES, NLBlocks.FLOWERING_MAGNOLIA_LEAVES, NLBlocks.FLOWERING_MAGNOLIA_LEAF_CARPET, NLBlocks.WHITE_ALLIUM);
+        brlmInstance.putBlocks(RenderLayer.getCutout(), NLBlocks.MAGNOLIA.DOOR, NLBlocks.MAGNOLIA.TRAPDOOR, NLBlocks.MAGNOLIA_VINE, NLBlocks.TROPICAL_PALM.SAPLING, NLBlocks.MAGNOLIA.SAPLING, NLBlocks.TROPICAL_PALM.DOOR, NLBlocks.TROPICAL_PALM.TRAPDOOR);
+        brlmInstance.putBlocks(RenderLayer.getCutoutMipped(), NLBlocks.MAGNOLIA.LEAVES, NLBlocks.FLOWERING_MAGNOLIA_LEAVES, NLBlocks.FLOWERING_MAGNOLIA_LEAF_CARPET, NLBlocks.WHITE_ALLIUM, NLBlocks.TROPICAL_PALM.LEAVES);
 
         // color providers
         ColorProviderRegistry.BLOCK.register((state, world, pos, tintIndex) -> {
@@ -46,8 +46,8 @@ public class NewLandsClient implements ClientModInitializer {
         ColorProviderRegistry.ITEM.register((stack, tintIndex) -> 0x8eb04a, NLBlocks.TROPICAL_PALM.LEAVES);
 
         // renderers
-        registerSignRenderers(NLBlocks.TROPICAL_PALM, NLBlocks.MAGNOLIA);
-        registerBoatRenderers(NLBlocks.TROPICAL_PALM.BOAT_ENTITY, NLBlocks.MAGNOLIA.BOAT_ENTITY);
+        registerSignRenderers(NLBlocks.MAGNOLIA, NLBlocks.TROPICAL_PALM);
+        registerBoatRenderers(NLBlocks.MAGNOLIA.BOAT_ENTITY, NLBlocks.TROPICAL_PALM.BOAT_ENTITY);
 
         EntityRendererRegistry INSTANCE = EntityRendererRegistry.INSTANCE;
         INSTANCE.register(NLEntities.HERMIT_CRAB, (entityRenderDispatcher, context) -> new HermitCrabEntityRenderer(entityRenderDispatcher));
