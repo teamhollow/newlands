@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "boat",
+  "pattern": [
+    "# #",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "newlands:tropical_palm_planks"
+    }
+  },
+  "result": {
+    "item": "newlands:tropical_palm_boat"
+  }
+}

@@ -15,7 +15,4 @@ public class NLItems {
     public static Item register(String id, Item item) {
         return Registry.register(Registry.ITEM, new Identifier(NewLands.MOD_ID, id), item);
     }
-    public static Item register(String id) {
-        return Registry.register(Registry.ITEM, new Identifier(NewLands.MOD_ID, id), new Item(new Item.Settings().group(NewLands.ITEM_GROUP)));
-    }
 }

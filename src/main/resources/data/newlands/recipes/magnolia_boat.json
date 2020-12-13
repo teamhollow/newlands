@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "boat",
+  "pattern": [
+    "# #",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "newlands:magnolia_planks"
+    }
+  },
+  "result": {
+    "item": "newlands:magnolia_boat"
+  }
+}

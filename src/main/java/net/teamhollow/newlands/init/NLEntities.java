@@ -33,9 +33,6 @@ public class NLEntities {
 
         return Registry.register(Registry.ENTITY_TYPE, new Identifier(NewLands.MOD_ID, id), entityType);
     }
-    // private static <T extends Entity> EntityType<T> register(String id, EntityType.Builder<T> entityTypeBuilder, int[] spawnEggColors) {
-    //     return register(id, entityTypeBuilder.build(id), spawnEggColors);
-    // }
     private static <T extends Entity> EntityType<T> register(String id, FabricEntityTypeBuilder<T> entityTypeBuilder, int[] spawnEggColors) {
         return register(id, entityTypeBuilder.build(), spawnEggColors);
     }

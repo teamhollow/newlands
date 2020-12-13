@@ -70,6 +70,6 @@ public class NewLands implements ModInitializer {
     }
 
     public static Identifier texture(String path) {
-        return new Identifier(MOD_ID, "textures/" + path + ".png");
+        return new Identifier(MOD_ID, "textures/" + path);
     }
 }
